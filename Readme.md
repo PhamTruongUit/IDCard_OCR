@@ -9,4 +9,4 @@
 
 <img src='modelview.drawio.png' alt='Process' style='display: block; width:100%; margin-top:10px; margin-bottom:10px' >
 
-### Project doesn't exist config.ini, if you need it, please contact me with link [Facebook](https://www.facebook.com/phamtruonguit/)
+### Contact me with [Facebook](https://www.facebook.com/phamtruonguit/)
