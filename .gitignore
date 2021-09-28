@@ -1,2 +1,6 @@
 server/__pycache__/
 server/src/__pycache__/
+server/src/api/__pycache__/
+server/src/libs/__pycache__/
+server/src/setting/__pycache__/
+server/src/tools/__pycache__/
