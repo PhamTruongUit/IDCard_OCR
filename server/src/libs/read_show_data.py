@@ -1,6 +1,15 @@
+import cv2
 import matplotlib.pyplot as plt
 
-def show_imgs(imgs, names, figsize=(15,7)):
+def read(path, gray=False):
+    # opencv read img with BGR
+    raw_img = cv2.imread(path)
+    if gray:
+        return cv2.cvtColor(raw_img, cv2.COLOR_BGR2GRAY)
+    # if opencv==False:
+    return cv2.cvtColor(raw_img, cv2.COLOR_BGR2RGB)
+
+def show(imgs, names, figsize=(15,7)):
     fig = plt.figure(figsize=figsize)
     nrow,ncol = 1, len(imgs)    
     for i in range(ncol):

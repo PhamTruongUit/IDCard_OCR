@@ -4,7 +4,7 @@ import numpy as np
 def nothing(x):
     pass
 
-def rgpColor(path):
+def rgbColor(path):
     # Creating a window for later use
     cv2.namedWindow('tool',cv2.WINDOW_NORMAL)
     # Starting with 100's to prevent error while masking

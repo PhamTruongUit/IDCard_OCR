@@ -1,7 +1,6 @@
-from server.src.debug import API_KEY
-import api
-import libs
-from setting.config import config
+import src.libs as libs
+from src.setting.config import config
+from src.api.ocr import ocr_file  
 
 API_KEY = config.API_KEY
 LANGUAGE = config.LANGUAGE
@@ -24,4 +23,4 @@ def process(image,lst=[]):
     return image, text
 
 def OCR(image):
-    return api.ocr_file(image, api_key=API_KEY, language=LANGUAGE)
+    return ocr_file(image, api_key=API_KEY, language=LANGUAGE)

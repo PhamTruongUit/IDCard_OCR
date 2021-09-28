@@ -1,1 +1,1 @@
-from api.OCRfree import ocr_file,ocr_url
+from src.api import ocr

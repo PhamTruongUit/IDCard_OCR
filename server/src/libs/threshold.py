@@ -1,11 +1,10 @@
 import cv2
 import numpy as np
-from libs.read_img import read_img
-from libs.show_imgs import show_imgs
+from src.libs import read_show_data as rsd
 
-def threshold(path, mode='RGB', debug=False, low_color=[], high_color=[]):
+def threshold(path, mode='RGB', debug=False, low_color=[0,0,0], high_color=[255,255,255]):
     if debug:
-        image = read_img(path)
+        image = rsd.read(path)
     else:
         image = cv2.imread(path)
 
@@ -21,6 +20,6 @@ def threshold(path, mode='RGB', debug=False, low_color=[], high_color=[]):
     result = cv2.bitwise_and(image,image,mask = mask)
     
     if debug:
-        show_imgs([mask,result], ["mask","result"])
+        rsd.show([mask,result], ["mask","result"])
     else:
         return mask,result
