@@ -2,11 +2,12 @@ import cv2
 import numpy as np
 from src.libs import read_show_data as rsd
 
-def threshold(path, mode='RGB', debug=False, low_color=[0,0,0], high_color=[255,255,255]):
-    if debug:
-        image = rsd.read(path)
-    else:
-        image = cv2.imread(path)
+def threshold(image='', path='', mode='RGB', debug=False, low_color=[0,0,0], high_color=[255,255,255]):
+    if path:
+        if debug:
+            image = rsd.read(path)
+        else:
+            image = cv2.imread(path)
 
     lower_blue = np.array(low_color)
     upper_blue = np.array(high_color)

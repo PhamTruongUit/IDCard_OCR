@@ -6,12 +6,15 @@ from src.api.ocr import ocr_file
 
 API_KEY = config.API_KEY
 
-file_name = '03.jpg'
+file_name = '02.jpg'
 path = f'./src/images/{file_name}' 
 
-# mode attribute
+# mode debug
 # tools.rgbColor(path)
 # tools.hsvColor(path)
+# tools.houghlines(path)
+
+# mode attribute
 # getattr(libs,'threshold')(path, 
 #             mode='RGB', 
 #             debug=True, 
@@ -24,4 +27,4 @@ path = f'./src/images/{file_name}'
 #             debug=True, 
 #             low_color=[0,0,0], 
 #             high_color=[255,255,255])
-print(ocr_file(path, api_key = API_KEY))
+# print(ocr_file(path, api_key = API_KEY))
