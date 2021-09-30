@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 from src.libs import read_show_data as rsd
 
 def houghlines(image='', path='', debug=False):
