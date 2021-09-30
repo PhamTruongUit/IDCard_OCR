@@ -9,8 +9,9 @@ def read(path, gray=False):
     # if opencv==False:
     return cv2.cvtColor(raw_img, cv2.COLOR_BGR2RGB)
 
-def show(imgs, names, figsize=(15,7)):
+def show(imgs, names, title = '', figsize=(15,7)):
     fig = plt.figure(figsize=figsize)
+    fig.suptitle(title, fontsize=16)
     nrow,ncol = 1, len(imgs)    
     for i in range(ncol):
         fig.add_subplot(nrow, ncol, i + 1)

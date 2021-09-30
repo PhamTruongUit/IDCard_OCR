@@ -6,14 +6,15 @@ from src.api.ocr import ocr_file
 
 API_KEY = config.API_KEY
 
-file_name = '04.jpg'
+file_name = '02.jpg'
 path = f'./src/images/{file_name}' 
 
 # mode debug
 # tools.rgbColor(path)
 # tools.hsvColor(path)
 # tools.houghlines(path)
-tools.corner_detector(path)
+# tools.corner_detector(path)
+libs.corner_detector(path = path, debug = True)
 
 # mode attribute
 # getattr(libs,'threshold')(path, 
