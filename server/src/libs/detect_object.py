@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 from src.libs import read_show_data as rsd
-from src.libs import translation as tl
+from src.libs import geometry
+from src.libs import enhancement
 
 def detect_object(image='', path='', debug=False, maxCornerNB=600, qualityLevel=0.05, minDistance=0.6):
     if path:
@@ -32,8 +33,8 @@ def auto_corners(image):
     brightness = -20
     scale_weight = 0.4
     # increase contract and decrease brightness
-    image = tl.contract_brightness(image, contract=contract, brightness=brightness)
-    image = tl.scale(image, weight=scale_weight)
+    image = enhancement.contract_brightness(image, contract=contract, brightness=brightness)
+    image = geometry.scale(image, weight=scale_weight)
     new_height, new_width, _ = image.shape
 
     # USE BILATERAL FILTER TO REDUCE NOISE BUT ALSO PRESERVE EDGES

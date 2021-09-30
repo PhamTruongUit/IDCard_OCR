@@ -14,7 +14,7 @@ path = f'./src/images/{file_name}'
 # tools.hsvColor(path)
 # tools.houghlines(path)
 # tools.corner_detector(path)
-libs.corner_detector(path = path, debug = True)
+libs.detect_object(path = path, debug = True)
 
 # mode attribute
 # getattr(libs,'threshold')(path, 
