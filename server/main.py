@@ -13,7 +13,6 @@ app = Flask(__name__)
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
 @app.route('/app', methods=['POST'])
 @cross_origin(origin='*')
 def main_process():
@@ -31,7 +30,7 @@ def main_process():
 @app.route('/', methods=['GET'])
 @cross_origin(origin='*')
 def index():
-    return "Hello day la Python"
+    return "Hello day la server Python"
 
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT_SERVER, debug=False)
