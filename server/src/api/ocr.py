@@ -2,11 +2,12 @@ import requests
 import json
 import cv2
 import base64
+from src.libs.convert_base64 import ConvImagetoBase64 as conv
 
 def ocr_image(image, overlay=False, api_key="helloworld", language='eng'):
     #convert ndarray to base 64
-    encode_base64 = base64.b64encode(cv2.imencode('.jpg', image)[1]).decode()
-    data_base64 = f'data:image/jpeg;base64,{encode_base64}'
+    image_base64 = conv(image)
+    data_base64 = f'data:image/jpeg;base64,{image_base64}'
     
     payload = {'isOverlayRequired': overlay,
                'base64Image': data_base64,

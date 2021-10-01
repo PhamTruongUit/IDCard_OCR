@@ -6,6 +6,14 @@ API_KEY = config.API_KEY
 LANGUAGE = config.LANGUAGE
 
 def process(image,lst=[]):
+    # pre processing
+    image = image_processing(image,lst)
+    # call API
+    text = OCR(image)
+
+    return image, text
+
+def image_processing(image, lst=[]):
     if lst:
         print(lst)
         # image processing
@@ -19,10 +27,7 @@ def process(image,lst=[]):
                     image = getattr(libs,attribute)(image)
                 except:
                     None
-    # call API
-    text = OCR(image)
-    # text = ''
-    return image, text
+    return image
 
 def OCR(image):
     return ocr_image(image, api_key=API_KEY, language=LANGUAGE)
