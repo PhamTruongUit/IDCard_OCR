@@ -1,8 +1,10 @@
+import cv2
 import src.libs as libs
 import src.tools as tools 
 from src.setting.config import config
 from src.libs.threshold import threshold
 from src.api.ocr import ocr_file  
+from process import process
 
 API_KEY = config.API_KEY
 
@@ -33,3 +35,8 @@ path = f'./src/images/{file_name}'
 #             low_color=[0,0,0], 
 #             high_color=[255,255,255])
 # print(ocr_file(path, api_key = API_KEY))
+
+# request API OCR(image)
+# image = cv2.imread(path)
+# image, text = process(image)
+# print(text)
