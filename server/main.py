@@ -28,8 +28,7 @@ def main_process():
 @app.route('/', methods=['GET'])
 @cross_origin(origin='*')
 def index():
-    return "Hello day la sever from colab"
-
+    return "Hello day la Python"
 
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT_SERVER, debug=False)
