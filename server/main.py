@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
-from src.libs import ConvBase64toImage
+from src.libs import ConvBase64toImage, ConvImagetoBase64
 from process import process
 from src.setting.config import config
 
@@ -21,9 +21,12 @@ def main_process():
     image_base64 = obj['image']
     lst = obj['lst']
     image = ConvBase64toImage(image_base64)
-    process(image, lst)
-    return None
-
+    image, text = process(image, lst)
+    image_base64 = ConvImagetoBase64(image)
+    return {
+            'image': image_base64,
+            'text': text
+            }
 
 @app.route('/', methods=['GET'])
 @cross_origin(origin='*')
