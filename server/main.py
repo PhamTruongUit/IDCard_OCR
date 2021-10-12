@@ -16,8 +16,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/app', methods=['POST'])
 @cross_origin(origin='*')
 def main_process():
-    obj = request.form.get()
-    image_base64 = obj['image']
+    obj = request.form
+    image_base64 = obj['img']
     lst = obj['lst']
     image = ConvBase64toImage(image_base64)
     image, text = process(image, lst)

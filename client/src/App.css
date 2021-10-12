@@ -1,0 +1,44 @@
+.App {
+  width: 1230px;
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 30px;
+  box-shadow: 0 0 10px 1px #a5a5a5;
+  border-radius: 5px;
+}
+.App .Input {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.App .result {
+  width: 50%;
+}
+.hidden_result {
+  display: none;
+}
+
+.App .result .Image_processed {
+  height: 240px;
+  box-shadow: 0 0 10px 1px #a5a5a5;
+  border-radius: 5px;
+  margin: 20px 80px;
+}
+
+.App .result .result_info .image_info {
+  height: 230px;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+.App .result .result_info .image_info .title {
+  display: block;
+  height: 40px;
+  width: 350px;
+  margin: 40px auto 0;
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: 500;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}

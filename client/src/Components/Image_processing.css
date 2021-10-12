@@ -1,0 +1,13 @@
+.hidden_form_check_box{
+    display: none;
+}
+.flex{
+    display: flex;
+}
+.Form_check_box{
+    flex-wrap: wrap;
+    margin: 30px 30px ;
+}
+.Form_check_box_item{
+    width: 50%;
+}
