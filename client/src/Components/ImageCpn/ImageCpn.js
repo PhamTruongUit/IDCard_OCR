@@ -1,7 +1,8 @@
 import "./ImageCpn.css";
 import React, { useState } from "react";
 import MagicDropZone from "react-magic-dropzone";
-import upload_image from './upload_image.png';
+// import upload_image from '../upload_image.png';
+import upload_image from '../../img/pngwing.com.jpeg'
 
 
 export default function ImageCpn() {
@@ -12,7 +13,7 @@ export default function ImageCpn() {
   }
 
   return (
-    <div className="Input_image">
+    <div className="input_image">
       <MagicDropZone
         accept="image/jpeg, image/png, .jpg, .jpeg, .png"
         onDrop={onDrop}
@@ -22,7 +23,7 @@ export default function ImageCpn() {
         <img
           alt=""
           src={image}
-          className="Image_place"
+          className="image_place"
         />
       </MagicDropZone>
     </div>

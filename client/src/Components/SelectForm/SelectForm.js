@@ -1,8 +1,9 @@
 import react, { useState } from "react";
-import Image_processing from "./Image_processing.js";
-import App from "../App.js";
+import Image_processing from "../Image_Processing/Image_processing.js";
+import App from "../../App.js";
 import axios from "axios";
 import "./SelectForm.css";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 export default function SelectForm() {
   const [myChose, setMyChose] = useState("auto");
@@ -21,12 +22,14 @@ export default function SelectForm() {
   }
 
   function get_image() {
-    const img = document.getElementsByClassName("Image_place")[0];
+    const img = document.getElementsByClassName("image_place")[0];
+    
     return img;
   }
 
   function getBase64Image(img) {
     var canvas = document.createElement("canvas");
+    // console.log(img)
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
     var ctx = canvas.getContext("2d");
@@ -56,6 +59,7 @@ export default function SelectForm() {
   function onImageLoaded() {
     removeResult()
     var img = get_image();
+    console.log(img)
     var base64 = getBase64Image(img);
 
     var img_processing = get_process();
@@ -97,19 +101,39 @@ export default function SelectForm() {
     } else {
       values.push(myChose);
     }
-
+    console.log(values);
     return values;
   }
 
   return (
     <div className="form_submit">
-      <form>
+      {/* <form>
         <select value={myChose} onChange={handleChange}>
           <option value="auto">auto</option>
           <option value="custom">custom</option>
           <option value="none">none</option>
         </select>
-      </form>
+      </form> */}
+      <div className="form-controller">
+        <FormControl style={{minWidth: 120, maxWidth: 150}} size="small" >
+          <InputLabel id="Option">Option</InputLabel>
+          <Select
+            labelId="Option"
+            id= "select-Option"
+            value={myChose}
+            label="Choose Option"
+            onChange={handleChange}
+            style={{padding: 0}}
+          >
+
+          <MenuItem value="auto">Auto</MenuItem>
+          <MenuItem value="custom">Custom</MenuItem>
+          <MenuItem value="none">None</MenuItem>
+
+          </Select>
+        </FormControl>
+      </div>
+      
 
       <Image_processing />
 

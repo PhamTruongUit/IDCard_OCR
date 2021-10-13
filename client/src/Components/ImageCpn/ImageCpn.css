@@ -1,0 +1,25 @@
+.input_image{
+  height: 240px;
+  width: auto;
+  /* margin: 20px 80px; */
+  box-shadow: 0 0 10px 1px rgba(212, 208, 208, 0.05);
+  border-radius: 10px;
+}
+
+.input_image img{
+  width: auto;
+}
+
+.input_image .input{
+  height: 100%;
+  width: 100%;
+}
+.image_place {
+  border-radius: 10px;
+  /* width: 100%;
+  height: 100%; */
+
+  background-size: cover;
+}
+
+

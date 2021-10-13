@@ -1,0 +1,38 @@
+:root{
+    --size: 20px;
+}
+
+.background-navbar{
+    background-color: yellow;
+}
+
+.header-navbar{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 10px 0 0 0;
+
+   
+}
+
+.header-navbar__list ul{
+    display: flex;
+
+    align-items: center;
+
+    list-style: none;
+
+}
+
+.header-navbar h1{
+    font-size: var(--size);
+}
+
+.header-navbar__list ul li{
+    display: flex;
+    margin-left: 10px;
+
+    font-size: var(--size);
+    align-items: center;
+
+}
