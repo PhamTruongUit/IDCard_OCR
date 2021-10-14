@@ -23,14 +23,13 @@
     /* box-shadow: 0 0 10px 1px #a5a5a5; */
     /* border-radius: 5px; */
 }
-.form_submit button{
+/* .form_submit button{
     margin: 30px auto 0;
 
     display: block;
     height: 34px;
     width: 140px;
     border-radius: 5px;
-    /* box-shadow: 0 0 10px 1px #a5a5a5; */
     border: none;
     background-color: rgb(10 144 203);
     font-size: 18px;
@@ -41,4 +40,5 @@
 .form_submit button:hover{
     background-color: rgb(8 120 169);
     transition: 0.4s;
-}
+} */
+

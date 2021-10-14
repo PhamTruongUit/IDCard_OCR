@@ -5,9 +5,18 @@
     display: flex;
 }
 .Form_check_box{
+    justify-content: flex-start;
     flex-wrap: wrap;
-    margin: 30px 30px ;
+    margin-top: 20px;
+    
 }
 .Form_check_box_item{
     width: 50%;
+    /* font-size: 16px; */
+    margin: 5px 0;
+    
 }
+/* 
+.Form_check_box_item:nth-child(odd){
+    margin-right: 30px;
+} */

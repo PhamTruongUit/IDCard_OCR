@@ -3,13 +3,16 @@ import Image_processing from "../Image_Processing/Image_processing.js";
 import App from "../../App.js";
 import axios from "axios";
 import "./SelectForm.css";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { Button, FormControl, InputLabel, MenuItem, Select, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import ButtonApply from "../Button/ButtonApply.js";
 
 export default function SelectForm() {
   const [myChose, setMyChose] = useState("auto");
+  const [option, setOption] = useState([]);
 
   function handleChange(event) {
     setMyChose(event.target.value);
+    // console.log(event.target.value);
     if (event.target.value === "custom") {
       var element = document.getElementsByClassName("Form_check_box")[0];
       element.classList.remove("hidden_form_check_box");
@@ -63,11 +66,14 @@ export default function SelectForm() {
     var base64 = getBase64Image(img);
 
     var img_processing = get_process();
-
     var bodyFormData = new FormData();
     bodyFormData.append("img", base64);
     bodyFormData.append("lst", img_processing);
-
+    // Check
+    // for (var value of bodyFormData.values()) {
+    //   console.log(value);
+    // }
+    //--------------------
     axios({
       method: "post",
       url: "http://localhost:3000/app",
@@ -85,18 +91,20 @@ export default function SelectForm() {
       });
   }
 
+  // LẤY OPTION
   function get_process() {
     let values = [];
     if (myChose === "custom") {
-      const checkboxes = document.querySelectorAll(
-        `input[name="img_processing"]:checked`
-      );
-      if (checkboxes.length === 0) {
+      // const checkboxes = document.querySelectorAll(
+      //   `input[name="img_processing"]:checked`
+      // );
+      if (option.length === 0) {
         values.push("none");
       } else {
-        checkboxes.forEach((checkbox) => {
-          values.push(checkbox.value);
-        });
+        // option.forEach((checkbox) => {
+        //   values.push(checkbox.value);
+        // });
+        values = [...option];
       }
     } else {
       values.push(myChose);
@@ -105,6 +113,21 @@ export default function SelectForm() {
     return values;
   }
 
+
+  // HANDLE CHECKBOX
+  function handleCheckBox(event){
+    if(event.target.checked === true){
+      let newOptions = [...option];
+      newOptions.push(event.target.value);
+      setOption(newOptions);
+    }else{
+      let newOptions = [...option];
+      const indexDelete = newOptions.indexOf(event.target.value);
+      newOptions.splice(indexDelete,1);
+      setOption(newOptions);
+    }
+    // console.log(option);
+  }
   return (
     <div className="form_submit">
       {/* <form>
@@ -115,29 +138,24 @@ export default function SelectForm() {
         </select>
       </form> */}
       <div className="form-controller">
-        <FormControl style={{minWidth: 120, maxWidth: 150}} size="small" >
-          <InputLabel id="Option">Option</InputLabel>
-          <Select
-            labelId="Option"
-            id= "select-Option"
-            value={myChose}
-            label="Choose Option"
-            onChange={handleChange}
-            style={{padding: 0}}
-          >
-
-          <MenuItem value="auto">Auto</MenuItem>
-          <MenuItem value="custom">Custom</MenuItem>
-          <MenuItem value="none">None</MenuItem>
-
-          </Select>
-        </FormControl>
+        <ToggleButtonGroup
+          color='secondary'
+          value={myChose}
+          // exclusive
+          onChange={handleChange}
+        >
+          <ToggleButton value="auto">Auto</ToggleButton>
+          <ToggleButton value="custom">Custom</ToggleButton>
+          <ToggleButton value="none">None</ToggleButton>
+        </ToggleButtonGroup>
       </div>
       
 
-      <Image_processing />
+      <Image_processing handleArray={handleCheckBox} />
 
-      <button onClick={onImageLoaded}>APPLY</button>
+      {/* <button onClick={onImageLoaded}>APPLY</button> */}
+
+      <ButtonApply onImageLoaded={onImageLoaded}/>
     </div>
   );
 }
