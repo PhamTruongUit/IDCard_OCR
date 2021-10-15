@@ -1,9 +1,20 @@
 import './App.css';
 import HeaderNavBar from './Components/Header/HeaderNavBar.js';
 import ImageCpn from './Components/ImageCpn/ImageCpn.js';
+import ProgressBars from './Components/Progress/ProgressBars';
 import SelectForm from './Components/SelectForm/SelectForm.js';
+import React, { useEffect, useState } from "react";
+
 
 function App() {
+  const [progress, setProgress] = useState(false);
+  function handleProgress(){
+    // console.log("hello app ne");
+    if(progress === false){
+      setProgress(true);
+    }else(setProgress(false));
+    console.log(progress);
+  }
   
   return (
     <div className="App background-img-1">
@@ -14,17 +25,18 @@ function App() {
             {/* InPut */}
             <div className="col-sm-12 col-md-12 col-lg-6 col-xl-6 input">
               <div className="image">
-                  <ImageCpn />
+                  <ImageCpn progress={progress}/>
               </div>
 
               <div className="Image_processing">
-                  <SelectForm />
+                  <SelectForm setProgress={setProgress}/>
               </div>
             </div>
             {/* Result */}
-            <div className=" col-sm-12 col-md-12 col-lg-6 col-xl-6 result"> {/* hidden_result*/}
+            <div className=" col-sm-12 col-md-12 col-lg-6 col-xl-6 result  hidden_result"> {/* */}
 
               <div className="image_processed">
+
                 <img id="Image_processed"></img>
               </div>
 
@@ -41,6 +53,7 @@ function App() {
 
           </div>
         </div>
+       
       </div>
       
     </div>

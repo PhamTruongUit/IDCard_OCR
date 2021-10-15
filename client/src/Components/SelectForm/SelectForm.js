@@ -1,15 +1,23 @@
-import react, { useState } from "react";
-import Image_processing from "../Image_Processing/Image_processing.js";
-import App from "../../App.js";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import axios from "axios";
-import "./SelectForm.css";
-import { Button, FormControl, InputLabel, MenuItem, Select, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useState } from "react";
 import ButtonApply from "../Button/ButtonApply.js";
+import Image_processing from "../Image_Processing/Image_processing.js";
+import "./SelectForm.css";
+import "./ToggleButton.css"
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import PropTypes from "prop-types";
 
-export default function SelectForm() {
+SelectForm.propTypes ={
+  handleProgress: PropTypes.func,
+  setProgress: PropTypes.func,
+}
+
+export default function SelectForm(props) {
+  const { handleProgress, setProgress } = props;
   const [myChose, setMyChose] = useState("auto");
   const [option, setOption] = useState([]);
-
+  // const classes = useStyles();
   function handleChange(event) {
     setMyChose(event.target.value);
     // console.log(event.target.value);
@@ -51,10 +59,9 @@ export default function SelectForm() {
   function displayResult(img, text){
     var e_image = document.getElementById('Image_processed')
     e_image.src = 'data:image/png;base64,' + img;
-
     var e_display = document.getElementsByClassName("result")[0];
     e_display.classList.remove("hidden_result");
-
+    setProgress(false);
     var e_info = document.getElementById('content');
     e_info.innerText = text;
   }
@@ -64,11 +71,12 @@ export default function SelectForm() {
     var img = get_image();
     console.log(img)
     var base64 = getBase64Image(img);
-
     var img_processing = get_process();
     var bodyFormData = new FormData();
     bodyFormData.append("img", base64);
     bodyFormData.append("lst", img_processing);
+    // handleCheckProgress();
+    setProgress(true);
     // Check
     // for (var value of bodyFormData.values()) {
     //   console.log(value);
@@ -82,9 +90,8 @@ export default function SelectForm() {
       .then(function (response) {
         var result = response["data"];
         img = result["image"];
-        var text = result["text"];
-        
-        displayResult(img, text)
+        var text = result["text"];      
+        displayResult(img, text);
       })
       .catch(function (error) {
         console.log(error);
@@ -128,6 +135,10 @@ export default function SelectForm() {
     }
     // console.log(option);
   }
+
+  function handleCheckProgress(){
+    handleProgress();
+  }
   return (
     <div className="form_submit">
       {/* <form>
@@ -138,16 +149,20 @@ export default function SelectForm() {
         </select>
       </form> */}
       <div className="form-controller">
-        <ToggleButtonGroup
-          color='secondary'
-          value={myChose}
-          // exclusive
-          onChange={handleChange}
-        >
-          <ToggleButton value="auto">Auto</ToggleButton>
-          <ToggleButton value="custom">Custom</ToggleButton>
-          <ToggleButton value="none">None</ToggleButton>
-        </ToggleButtonGroup>
+        <ThemeProvider theme={theme}>
+          
+          <ToggleButtonGroup
+            value={myChose}
+            color="secondary"
+            // exclusive
+            onChange={handleChange}
+          >
+            <ToggleButton value="auto" >Auto</ToggleButton>
+            <ToggleButton value="custom">Custom</ToggleButton>
+            <ToggleButton value="none">None</ToggleButton>
+          </ToggleButtonGroup>
+        </ThemeProvider>
+        
       </div>
       
 
@@ -159,3 +174,19 @@ export default function SelectForm() {
     </div>
   );
 }
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#cccccc',
+
+    },
+    secondary: {
+      
+      main: '#FF275D',
+      contrastText: '#ccc'
+    },
+    
+  },
+});
+
