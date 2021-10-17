@@ -17,6 +17,7 @@ export default function SelectForm(props) {
   const { handleProgress, setProgress } = props;
   const [myChose, setMyChose] = useState("auto");
   const [option, setOption] = useState([]);
+  const [buttonToggle, setButtonToggle] = useState(false);
   // const classes = useStyles();
   function handleChange(event) {
     setMyChose(event.target.value);
@@ -54,6 +55,8 @@ export default function SelectForm(props) {
     e_image.removeAttribute('src');
     var e_info = document.getElementById('content');
     e_info.innerText = '';
+    var e_display = document.getElementsByClassName("result")[0];
+    e_display.classList.add("hidden_result");
   }
 
   function displayResult(img, text){
@@ -68,6 +71,7 @@ export default function SelectForm(props) {
 
   function onImageLoaded() {
     removeResult()
+    // setButtonToggle(true);
     var img = get_image();
     console.log(img)
     var base64 = getBase64Image(img);
@@ -92,6 +96,7 @@ export default function SelectForm(props) {
         img = result["image"];
         var text = result["text"];      
         displayResult(img, text);
+        setButtonToggle(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -160,6 +165,7 @@ export default function SelectForm(props) {
             <ToggleButton value="auto" >Auto</ToggleButton>
             <ToggleButton value="custom">Custom</ToggleButton>
             <ToggleButton value="none">None</ToggleButton>
+            
           </ToggleButtonGroup>
         </ThemeProvider>
         
@@ -170,7 +176,7 @@ export default function SelectForm(props) {
 
       {/* <button onClick={onImageLoaded}>APPLY</button> */}
 
-      <ButtonApply onImageLoaded={onImageLoaded}/>
+      <ButtonApply onImageLoaded={onImageLoaded} buttonToggle={buttonToggle} setButtonToggle={setButtonToggle}/>
     </div>
   );
 }
@@ -186,7 +192,12 @@ const theme = createTheme({
       main: '#FF275D',
       contrastText: '#ccc'
     },
-    
+  },
+  typography: {
+    fontFamily: [
+      'Poppins',
+      'sans-serif',
+    ].join(','),
   },
 });
 

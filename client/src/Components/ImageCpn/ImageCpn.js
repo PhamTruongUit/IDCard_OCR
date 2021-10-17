@@ -17,6 +17,7 @@ export default function ImageCpn(props) {
   return (
     <div className="input_image">
       {!!progress && <ProgressBars/>}
+      {/* <ProgressBars/> */}
       <MagicDropZone
         accept="image/jpeg, image/png, .jpg, .jpeg, .png"
         onDrop={onDrop}

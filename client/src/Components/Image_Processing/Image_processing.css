@@ -3,11 +3,13 @@
 }
 .flex{
     display: flex;
+    position: relative;
 }
 .Form_check_box{
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 20px;
+    position: relative;
     
 }
 .Form_check_box_item{

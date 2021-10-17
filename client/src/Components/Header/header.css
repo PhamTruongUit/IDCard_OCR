@@ -3,14 +3,22 @@
 }
 
 .background-navbar{
-    background-color: yellow;
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+    font-weight: 600;
+    color: #ffffff;
+    /* text-shadow: 0 0 8px rgba(253, 116, 151,0.7); */
+    /* background-image: linear-gradient(to top, #fffafa, #ffebed, #ffdde1, #ffced7, #febfcf); */
+    background-color: #3d4649;
 }
 
 .header-navbar{
     display: flex;
     justify-content: space-between;
 
-    padding: 10px 0 0 0;
+    align-items: center;
 
    
 }
@@ -29,10 +37,69 @@
 }
 
 .header-navbar__list ul li{
+    position: relative;
+    
     display: flex;
     margin-left: 10px;
 
-    font-size: var(--size);
     align-items: center;
 
+
 }
+
+.header-navbar__list ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: var(--size);
+    
+    text-transform: uppercase;
+
+}
+
+
+
+.btn1 {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #999;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+
+.svg_css {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+    
+    transition: 1.5s ease-in-out;
+  }
+
+.svg1{
+    stroke-dasharray: 50 174;
+    stroke-dashoffset: 50;
+}
+
+.svg2{
+    stroke-dasharray: 50 374;
+    stroke-dashoffset: 50;
+}
+
+
+
+.btn1:hover {
+    transition: 1s ease-in-out;
+    opacity: 0.8;
+    border: 2px solid transparent;
+  }
+  
+.svg1:hover svg {
+stroke-dashoffset: -174;
+}
+  
+.svg2:hover svg {
+    stroke-dashoffset: -374;
+    }
