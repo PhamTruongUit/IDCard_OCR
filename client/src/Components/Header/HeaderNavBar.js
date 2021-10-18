@@ -31,7 +31,7 @@ export default function HeaderNavBar(props) {
                                 <svg className="svg_css" width={`${dimensions1.width}`} height={`${dimensions1.height}`} viewBox={`0 0 ${dimensions1.width} ${dimensions1.height}`}> 
 
                                 <polyline points={`${Math.floor(dimensions1.width / 2)},0
-                                    ${dimensions1.width},0
+                                    ${dimensions1.width -1},0
                                     ${dimensions1.width},${dimensions1.height}
                                     ${Math.floor(dimensions1.width/ 2)},${dimensions1.height}                            
                                 `} />
