@@ -1,3 +1,4 @@
+import json
 from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
@@ -19,6 +20,7 @@ def main_process():
     obj = request.form
     image_base64 = obj['img']
     lst = obj['lst']
+    lst = json.loads(lst)
     image = ConvBase64toImage(image_base64)
     image, text = process(image, lst)
     image_base64 = ConvImagetoBase64(image)

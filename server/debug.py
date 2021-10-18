@@ -8,7 +8,7 @@ from process import process
 
 API_KEY = config.API_KEY
 
-file_name = '01.jpg'
+file_name = '02.jpg'
 path = f'./src/images/{file_name}' 
 
 # mode tools debug
@@ -22,6 +22,11 @@ path = f'./src/images/{file_name}'
 # libs.histogram(path = path, debug = True)
 
 # mode attribute
+image = cv2.imread(path)
+image = getattr(libs, "detect_object")(image)
+cv2.imshow('test',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 # getattr(libs,'threshold')(path, 
 #             mode='RGB', 
 #             debug=True, 

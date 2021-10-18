@@ -1,6 +1,6 @@
 import numpy as np
 
-def contract_brightness (image, contract=1, brightness=0):
+def contract_brightness (image, contract=1.5, brightness=-70):
     temp = np.array(image)
     image = np.zeros_like(temp)
     image = (temp-0.5)*contract + 0.5 + brightness
