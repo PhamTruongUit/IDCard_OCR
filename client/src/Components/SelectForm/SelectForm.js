@@ -122,6 +122,7 @@ export default function SelectForm(props) {
       values.push(myChose);
     }
     console.log(values);
+    values = JSON.stringify(values);
     return values;
   }
 

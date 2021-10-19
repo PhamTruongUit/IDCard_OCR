@@ -60,9 +60,9 @@ const about = [
         },
         {
             name: 'Nguyễn V.Thịnh',
-            skill: ['Fontend Dev','BayLAg'],
+            skill: ['Fontend Dev'],
             image: VthinhJPG, 
-            fb: 'facebook.com/HoangSon2402',
+            fb: 'facebook.com/nvthinh2701',
             github: 'github.com/NguyenVanThinh2000',
             email: '18521448@gm.uit.edu.vn',
             phone: '0971-449-695',

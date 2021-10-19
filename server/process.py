@@ -7,23 +7,25 @@ LANGUAGE = config.LANGUAGE
 
 
 def process(image, lst=[]):
+    
     # pre processing
     image = image_processing(image, lst)
     # call API
-    # text = OCR(image)
-    text = "chay thu ne he"
+    text = OCR(image)
+    # text = "chay thu ne he"
 
     return image, text
 
 
 def image_processing(image, lst=[]):
     if lst:
-        print(lst)
-        # image processing
-        if lst[0] == 'auto':
-            # option auto
-            None
+        if lst[0] == 'none':
+            None      
+        elif lst[0] == 'auto':
+            image = getattr(libs, "detect_object")(image)
+            image = getattr(libs, "contract_brightness")(image)
         else:
+            # image processing
             for attribute in lst:
                 # call function libs.attribute()
                 try:
