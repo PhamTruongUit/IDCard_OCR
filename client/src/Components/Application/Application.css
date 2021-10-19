@@ -18,14 +18,29 @@
 }
 
 .input {
+  /* position: absolute; */
   margin: 0 auto;
-  /* height: 800px; */
-  /* position: relative; */
+  
+  transition: all 2s;
+  
 }
 
 .result {
   margin: 0 auto;
+  animation-name: unhide;
+  animation-duration: 2s;
 }
+
+@keyframes unhide {
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 .hidden_result {
   display: none;
 }
@@ -71,7 +86,7 @@
 
 .image{
   display: flex;
-  /* position: relative; */
+  /* position: absolute; */
   justify-content: center;
 }
 

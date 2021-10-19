@@ -114,7 +114,7 @@ function Information(props) {
 
                 {about.map( char =>{
                     return(
-                        <div data-aos={`${char.fade}`} data-aos-duration="2000" className={`character ${char.cn} col-sm-12 col-md-12 col-lg-6 col-xl-6`}>
+                        <div data-aos={`${char.fade}`} data-aos-duration="2000" className={`character ${char.cn} col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6`}>
                             <div className="icon-right"></div>
                             <div className="material-1" style={{backgroundImage: `${char.color}`,}}>
                                 <div className="avatar" style={{backgroundImage: `url(${char.image})`}}></div>

@@ -3,6 +3,10 @@ import ImageCpn from '../ImageCpn/ImageCpn';
 import SelectForm from '../SelectForm/SelectForm';
 import React, { useEffect, useState } from "react";
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './Application.css'
+AOS.init();
 function Application() {
   const [progress, setProgress] = useState(false);
   
@@ -11,7 +15,7 @@ function Application() {
         <div className=" container ">
           <div className="row field-input">
             {/* InPut */}
-            <div className="col-sm-12 col-md-12 col-lg-6 col-xl-6 input">
+            <div data-aos="fade" data-aos-duration="2000" className="col-sm-12 col-md-12 col-lg-6 col-xl-6 input">
               <div className="image">
                   <ImageCpn progress={progress}/>
               </div>
