@@ -34,7 +34,7 @@ const about = [
         },
         {
             name: 'Nguyễn T.Thịnh',
-            skill: ['Fontend Dev',''],
+            skill: ['Computer Vision', 'Machine Learning'],
             image: TthinhJPG, 
             fb: 'facebook.com/thinhntr',
             github: 'github.com/thinhntr',
