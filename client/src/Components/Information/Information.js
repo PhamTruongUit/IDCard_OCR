@@ -47,7 +47,7 @@ const about = [
         },
         {
             name: 'Sơn Trần',
-            skill: ['Fontend Dev',''],
+            skill: ['Frontend Dev'],
             image: sonJPG, 
             fb: 'facebook.com/HoangSon2402',
             github: 'github.com/Master2k0',
@@ -60,7 +60,7 @@ const about = [
         },
         {
             name: 'Nguyễn V.Thịnh',
-            skill: ['Fontend Dev'],
+            skill: ['Frontend Dev'],
             image: VthinhJPG, 
             fb: 'facebook.com/nvthinh2701',
             github: 'github.com/NguyenVanThinh2000',
