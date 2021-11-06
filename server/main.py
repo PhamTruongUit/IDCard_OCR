@@ -3,8 +3,10 @@ from flask import Flask, request
 from flask_cors import CORS, cross_origin
 
 from src.libs import ConvBase64toImage, ConvImagetoBase64
-from process import process
+from handle import process
 from src.setting.config import config
+
+from src.ocr import ocr_custom
 
 PORT_SERVER = config.PORT_SERVER
 HOST = config.HOST

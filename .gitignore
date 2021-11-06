@@ -4,5 +4,5 @@ server/src/api/__pycache__/
 server/src/libs/__pycache__/
 server/src/setting/__pycache__/
 server/src/tools/__pycache__/
-server/test.py
-server/test.html
+server/src/ocr/__pycache__/
+server/src/ocr/transformerocr.pth

@@ -1,47 +1,26 @@
+import time
 import cv2
-import src.libs as libs
-import src.tools as tools 
+import sys
+import src.tools as tools
 from src.setting.config import config
 from src.libs.threshold import threshold
-from src.api.ocr import ocr_file  
-from process import process
+from src.ocr import ocr_custom
+from src.libs.read_show_data import read
 
-API_KEY = config.API_KEY
+if __name__ == '__main__':
 
-file_name = '02.jpg'
-path = f'./src/images/{file_name}' 
+    file_name = '02.jpg'
+    path = f'./src/images/{file_name}' 
 
-# mode tools debug
-# tools.rgbColor(path)
-# tools.hsvColor(path)
-# tools.houghlines(path)
-# tools.corner_detector(path)
-
-# mode libs debug
-# libs.detect_object(path = path, debug = True)
-# libs.histogram(path = path, debug = True)
-
-# mode attribute
-image = cv2.imread(path)
-image = getattr(libs, "detect_object")(image)
-cv2.imshow('test',image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-# getattr(libs,'threshold')(path, 
-#             mode='RGB', 
-#             debug=True, 
-#             low_color=[0,0,0], 
-#             high_color=[255,255,255])
-
-# mode module
-# threshold(path, 
-#             mode='RGB', 
-#             debug=True, 
-#             low_color=[0,0,0], 
-#             high_color=[255,255,255])
-# print(ocr_file(path, api_key = API_KEY))
-
-# request API OCR(image)
-# image = cv2.imread(path)
-# image, text = process(image)
-# print(text)
+    if len(sys.argv) < 2: 
+        # print(len(sys.argv))
+        print('please input \'python debug.py %pathfile\'')
+    else:
+        path = sys.argv[1]
+        try:
+            image = read(path)
+            start_time = time.time()
+        except Exception:
+            print('path error, please try again')
+        print(ocr_custom(image, debug=False))
+        print("--- %s seconds ---" % (time.time() - start_time))
