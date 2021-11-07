@@ -1,8 +1,2 @@
-server/__pycache__/
-server/src/__pycache__/
-server/src/api/__pycache__/
-server/src/libs/__pycache__/
-server/src/setting/__pycache__/
-server/src/tools/__pycache__/
-server/src/ocr/__pycache__/
+**/__pycache__/
 server/src/ocr/transformerocr.pth
