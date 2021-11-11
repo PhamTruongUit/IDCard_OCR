@@ -1,6 +1,6 @@
 import json
 from flask import Flask, request
-from flask import render_template, jsonify
+from flask import render_template
 from flask_cors import CORS, cross_origin
 
 from src.libs import ConvBase64toImage, ConvImagetoBase64
@@ -11,13 +11,14 @@ PORT = config.PORT
 HOST = config.HOST
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 
 CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/app', methods=['POST'])
 @cross_origin(origin='*')
-def main_process():
+def process_image():
     obj = request.form
     image_base64 = obj['img']
     lst = obj['lst']
@@ -30,24 +31,20 @@ def main_process():
             'image': image_base64,
             'text': text
             }
-
+            
+@app.route('/debug', methods=['GET'])
+@cross_origin(origin='*')
+def process_url():
+    if request.method == 'GET':
+        url_drive = request.args.get('url', default=None, type=None)
+        json_data = url_process(url_drive)
+        return json_data
+        
 @app.route('/', methods=['GET'])
 @cross_origin(origin='*')
 def get_index():
     if request.method == 'GET':
         return render_template('index.html')
 
-@app.route('/debug', methods=['GET'])
-@cross_origin(origin='*')
-def url_process():
-    if request.method == 'GET':
-        # url_drive = request.args.get('url', default=None, type=None)
-        # json_data = url_process(url_drive)
-        json_data = {
-            "123": "trường",
-            "456": "Thịnh"
-        }
-        return json_data
-
 if __name__ == '__main__':
-    app.run(host=HOST, port=PORT, debug=True)
+    app.run(host=HOST, port=PORT, debug=False)
