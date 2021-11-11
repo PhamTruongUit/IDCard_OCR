@@ -30,10 +30,8 @@ def image_process(image="", path="", lst=[]):
             raise ValueError(f'{path} does not exist')
     # pre processing
     image_result = image_processing(image, lst)
-    show([image_result])
-    text = "Null"
     # call model
-    obj = ocr_custom(image, save_img=False ,debug=False)
+    obj = ocr_custom(image = image_result)
     text = obj["text"]
     
     return image, text

@@ -13,5 +13,5 @@ if __name__ == '__main__':
             start_time = time.time()
         except Exception:
             print('path error, please try again')
-        print(ocr_custom(path, debug=False))
+        ocr_custom(path = path, debug=True)
         print("--- %s seconds ---" % (time.time() - start_time))
