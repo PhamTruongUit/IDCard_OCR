@@ -7,6 +7,4 @@
 |Nguyễn Văn Thịnh|18521448|
 |Phạm Ngọc Trường|18521571|
 
-<img src='modelview.drawio.png' alt='Process' style='display: block; width:100%; margin-top:10px; margin-bottom:10px' >
-
 ### Contact me with [Facebook](https://www.facebook.com/phamtruonguit/)

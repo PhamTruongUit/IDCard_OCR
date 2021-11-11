@@ -1,17 +1,17 @@
 import numpy as np
 
-def unique_list(lst)->list:
+def unique_list(lst):
     check = []
     return [x for x in lst if x not in check and not check.append(x)]
 
-def cluster_lines(box_1, box_2)->list:
+def cluster_lines(box_1, box_2):
     y1 = box_1[0] if box_1[0] < box_2[0] else box_2[0]
     y2 = box_1[1] if box_1[1] > box_2[1] else box_2[1] 
     x1 = box_1[2] if box_1[2] < box_2[2] else box_2[2]
     x2 = box_1[3] if box_1[3] > box_2[3] else box_2[3]
     return y1, y2, x1, x2 
 
-def crop_lines(image, lst_box)->np.array:
+def crop_lines(image, lst_box):
     lst_lines = []
     image = np.array(image)
     for y1,y2,x1,x2 in lst_box:
@@ -20,7 +20,7 @@ def crop_lines(image, lst_box)->np.array:
 
     return lst_lines
 
-def boxes_line(bounds=[], min=20)->list:
+def boxes_line(bounds=[], min=20):
     lst_box = []
     flag = bounds[0]
     mutil_box = False # flag for 1 box in 1 line

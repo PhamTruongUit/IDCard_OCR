@@ -8,5 +8,5 @@
 08 : dilation
 09 : opening
 10 : closing
-11 : blur median
+11 : blur_median
 12 : blur_bilateral
