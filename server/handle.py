@@ -1,4 +1,3 @@
-import sys
 from src import libs
 from src.ocr import ocr_custom
 from src.libs.read_show_data import read, show
@@ -8,19 +7,39 @@ import gdown
 from pyvi import ViUtils
 
 OPTIONS = {
-        "01": "detect_object",
-        "02": "histogram",
-        "03": "inc_brightness",
-        "04": "dec_brightness",
-        "05": "inc_contract",
-        "06": "dec_contract",
-        "07": "Erosion",
-        "08": "Dilation",
-        "09" : "Opening",
-        "10" : "Closing",
-        "11" : "blur_median",
-        "12" : "blur_bilateral"
+        "01": "blur_bilateral",
+        "02": "inc_brightness",
+        "03": "dec_brightness",
+        "04": "inc_contract",
+        "05": "dec_contract",
+        "06": "Erosion",
+        "07": "Dilation",
+        "08": "Opening",
+        "09": "Closing",
+        "10": "histogram",
+        "11": "auto_rotation",
+        "12": "detect_object"
     }
+
+def image_preprocess(image, lst=[]):
+
+    if lst:
+        if lst[0] == 'none':
+            None      
+        elif lst[0] == 'auto':
+            image = getattr(libs, "auto_rotation")(image)
+            image = getattr(libs, "detect_object")(image)
+        else:
+            # image processing
+            for attr in lst:
+                opt = OPTIONS[attr]
+                # print(opt)
+                # call function libs.attribute()
+                try:
+                    image = getattr(libs, opt)(image)
+                except:
+                    None
+    return image
 
 def image_process(image="", path="", lst=[]):
     if not image:
@@ -29,7 +48,7 @@ def image_process(image="", path="", lst=[]):
         except: 
             raise ValueError(f'{path} does not exist')
     # pre processing
-    image_result = image_processing(image, lst)
+    image_result = image_preprocess(image, lst)
     # call model
     obj = ocr_custom(image = image_result)
     text = obj["text"]
@@ -91,26 +110,6 @@ def clear_file(path):
     for f in os.listdir(path):
         if f != "__init__.py":
             os.remove(os.path.join(path, f))
-
-def image_processing(image, lst=[]):
-
-    if lst:
-        if lst[0] == 'none':
-            None      
-        elif lst[0] == 'auto':
-            image = getattr(libs, "detect_object")(image)
-            image = getattr(libs, "inc_contract")(image)
-        else:
-            # image processing
-            for attr in lst:
-                opt = OPTIONS[attr]
-                # print(opt)
-                # call function libs.attribute()
-                try:
-                    image = getattr(libs, opt)(image)
-                except:
-                    None
-    return image
 
 if __name__ == "__main__":
     # clear_file("./result")

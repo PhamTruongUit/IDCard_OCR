@@ -1,12 +1,12 @@
-01 : detect object
-02 : histogram
-03 : inc brightness
-04 : dec brightness
-05 : inc contract
-06 : dec contract
-07 : erosion
-08 : dilation
-09 : opening
-10 : closing
-11 : blur_median
-12 : blur_bilateral
+01 : blur bilateral
+02 : inc brightness
+03 : dec brightness
+04 : inc contract
+05 : dec contract
+06 : erosion
+07 : dilation
+08 : opening
+09 : closing
+10 : histogram
+11 : auto rotation 
+12 : detect object
