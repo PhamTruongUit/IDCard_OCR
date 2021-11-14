@@ -22,7 +22,7 @@ def determine_score(thresh, angle):
     score = np.sum((histogram[1:] - histogram[:-1]) ** 2)
     return score
 
-def auto_rotation(image, delta=0.5, limit=30):
+def auto_rotation(image, delta=1, limit=10):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1] 
     scores = []

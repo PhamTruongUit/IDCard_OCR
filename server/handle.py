@@ -5,23 +5,12 @@ from PIL import Image
 import os
 import gdown
 from pyvi import ViUtils
+import time
+from src.setting.config import config
 
-OPTIONS = {
-        "01": "blur_bilateral",
-        "02": "inc_brightness",
-        "03": "dec_brightness",
-        "04": "inc_contract",
-        "05": "dec_contract",
-        "06": "Erosion",
-        "07": "Dilation",
-        "08": "Opening",
-        "09": "Closing",
-        "10": "histogram",
-        "11": "auto_rotation",
-        "12": "detect_object"
-    }
+OPTIONS = config.OPTIONS
 
-def image_preprocess(image, lst=[]):
+def preprocess(image, lst=[]):
 
     if lst:
         if lst[0] == 'none':
@@ -41,21 +30,32 @@ def image_preprocess(image, lst=[]):
                     None
     return image
 
-def image_process(image="", path="", lst=[]):
-    if not image:
+def image_process(detector, reader, image=None, path="", lst=[]):
+    if path:
         try:
             image = read(path)
         except: 
             raise ValueError(f'{path} does not exist')
-    # pre processing
-    image_result = image_preprocess(image, lst)
-    # call model
-    obj = ocr_custom(image = image_result)
-    text = obj["text"]
-    
-    return image, text
+    print(detector, reader)
 
-def url_process(url_drive):
+    # pre processing
+    start_process = time.time()
+    image_result = preprocess(image, lst)
+    end_process = time.time()
+
+    # show([image_result])
+    # # call model
+    start_ocr = time.time()
+    obj = ocr_custom(detector=detector, reader=reader, image = image_result)
+    text = obj["text"]
+    end_ocr = time.time()
+
+    print(f'Time preprocess image: {round(end_process-start_process, 4)}')
+    print(f'Time recognize text: {round(end_ocr-start_ocr, 4)}')
+    
+    return image_result, text
+
+def url_process(detector, reader, url_drive):
     temp_path = "temp"
     result_path = "results"
 
@@ -86,7 +86,7 @@ def url_process(url_drive):
 
         file_path = os.path.join(temp_path,f'{name}.{tail}')
         # print(file_path)
-        obj = ocr_custom(path=file_path)
+        obj = ocr_custom(detector=detector, reader=reader, path=file_path)
         image = obj["img"]
         text = obj["text"]
 
@@ -112,7 +112,7 @@ def clear_file(path):
             os.remove(os.path.join(path, f))
 
 if __name__ == "__main__":
-    # clear_file("./result")
-    # image_process(path = "./src/images/01.jpg", lst=["12"])
-    # url_process(0)
+    from src.ocr.models import load_model
+    detector, reader = load_model()
+    image_process(detector = detector, reader = reader, path = "./src/images/02.jpg", lst=["none"])
     None
