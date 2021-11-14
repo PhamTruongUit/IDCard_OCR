@@ -16,7 +16,7 @@ def preprocess(image, lst=[]):
         if lst[0] == 'none':
             None      
         elif lst[0] == 'auto':
-            image = getattr(libs, "auto_rotation")(image)
+            image = getattr(libs, "inc_contract")(image)
             image = getattr(libs, "detect_object")(image)
         else:
             # image processing
@@ -36,7 +36,6 @@ def image_process(detector, reader, image=None, path="", lst=[]):
             image = read(path)
         except: 
             raise ValueError(f'{path} does not exist')
-    print(detector, reader)
 
     # pre processing
     start_process = time.time()

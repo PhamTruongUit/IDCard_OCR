@@ -8,7 +8,7 @@ from handle import url_process, image_process
 from src.setting.config import config
 from src.ocr.models import load_model 
 
-PORT = config.PORT
+PORT_SERVER = config.PORT_SERVER
 HOST = config.HOST
 
 app = Flask(__name__)
@@ -49,4 +49,4 @@ def get_index():
 
 if __name__ == '__main__':
     detector, reader = load_model()
-    app.run(host=HOST, port=PORT, debug=False)
+    app.run(host=HOST, port=PORT_SERVER, debug=False)

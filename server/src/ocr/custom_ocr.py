@@ -63,6 +63,7 @@ def fit_fields(lst_text, index_start=0):
 
     # check exception
     try:
+        flag_param[id][0] -= 1
         flag_param[id][1] += 1
     except:
         None
@@ -132,6 +133,7 @@ def fit_fields_v2(lst_text, index_start=0):
         fit_id = lst_id[0]
 
     try:
+        flag_param[fit_id][0] -= 1
         flag_param[fit_id][1] += 1
     except:
         None

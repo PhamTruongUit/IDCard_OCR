@@ -2,7 +2,7 @@ from configparser import ConfigParser as cfg
 
 config = cfg()
 config.read("../config.ini", encoding="utf8")
-config.PORT = config.get("server", "port")
+config.PORT_SERVER = config.get("server", "port")
 config.HOST = config.get("hosting","address")
 
 templates = dict(config.items('templates'))

@@ -3,6 +3,7 @@ from vietocr.tool.config import Cfg
 from vietocr.tool.predictor import Predictor
 
 def load_model():
+    print('INFO: Loading model...')
     # vietocr
     custom = Cfg.load_config_from_name('vgg_transformer')
     custom['cnn']['pretrained']=False
