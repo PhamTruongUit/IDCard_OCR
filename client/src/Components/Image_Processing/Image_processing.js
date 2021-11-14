@@ -140,7 +140,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="12"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Detect Object</span>}
+            label={<span style={{ fontSize: "15px" }}>Auto Detect</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
