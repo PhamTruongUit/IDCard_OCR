@@ -6,6 +6,7 @@ from flask_cors import CORS, cross_origin
 from src.libs import ConvBase64toImage, ConvImagetoBase64
 from handle import url_process, image_process
 from src.setting.config import config
+from src.ocr.models import load_model 
 
 PORT = config.PORT
 HOST = config.HOST
@@ -25,7 +26,7 @@ def process_image():
     # print(lst)
     lst = json.loads(lst)
     image = ConvBase64toImage(image_base64)
-    image, text = image_process(image=image, lst=lst)
+    image, text = image_process(detector = detector, reader = reader, image=image, lst=lst)
     image_base64 = ConvImagetoBase64(image)
     return {
             'image': image_base64,
@@ -37,7 +38,7 @@ def process_image():
 def process_url():
     if request.method == 'GET':
         url_drive = request.args.get('url', default=None, type=None)
-        json_data = url_process(url_drive)
+        json_data = url_process(detector=detector, reader=reader, url_drive=url_drive)
         return json_data
         
 @app.route('/', methods=['GET'])
@@ -47,4 +48,5 @@ def get_index():
         return render_template('index.html')
 
 if __name__ == '__main__':
+    detector, reader = load_model()
     app.run(host=HOST, port=PORT, debug=False)
