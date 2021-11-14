@@ -7,6 +7,7 @@ import gdown
 from pyvi import ViUtils
 import time
 from src.setting.config import config
+import codecs
 
 OPTIONS = config.OPTIONS
 
@@ -54,6 +55,54 @@ def image_process(detector, reader, image=None, path="", lst=[]):
     
     return image_result, text
 
+def path_process(detector, reader, path):
+    json_data = {} 
+    result_path = "results"
+    list_files = os.listdir(path)  
+
+    lst_tail = ['jpg','jpeg','png']
+
+    for id in range(len(list_files)):
+        file = list_files[id]
+        name = file.split('.')[0]
+        tail = file.split('.')[1]
+        
+        if tail not in lst_tail:
+            continue
+
+        # auto rename files 
+        new_name = ViUtils.remove_accents(name).decode("utf-8") 
+        old_file = os.path.join(path,f'{name}.{tail}')
+        new_file = os.path.join(path,f'{new_name}.{tail}')
+        os.rename(old_file, new_file)
+        name = new_name
+
+        file_path = os.path.join(path,f'{name}.{tail}')
+        # print(file_path)
+        obj = ocr_custom(detector=detector, reader=reader, path=file_path)
+        image = obj["img"]
+        text = obj["text"]
+
+        save_image_path = os.path.join(result_path, f'{name}.{tail}')   
+        save_text_path = os.path.join(result_path, f'{name}.txt')  
+
+        Image.fromarray(image).save(save_image_path)
+
+        with codecs.open(save_text_path, "w", "utf-8-sig") as f:
+            for te in text:
+                f.write(te)
+                f.write("\n")
+
+        abs_path = os.path.abspath(save_image_path)
+
+        # create json
+        json_data[f'{id}'] = []
+        json_data[f'{id}'].append({
+            "img": f'{abs_path}',
+            "text": text
+        })
+    return json_data
+
 def url_process(detector, reader, url_drive):
     temp_path = "temp"
     result_path = "results"
@@ -89,9 +138,17 @@ def url_process(detector, reader, url_drive):
         image = obj["img"]
         text = obj["text"]
 
-        save_path = os.path.join(result_path, f'{name}.{tail}')   
-        Image.fromarray(image).save(save_path)
-        abs_path = os.path.abspath(save_path)
+        save_image_path = os.path.join(result_path, f'{name}.{tail}')   
+        save_text_path = os.path.join(result_path, f'{name}.txt')   
+
+        Image.fromarray(image).save(save_image_path)
+
+        with codecs.open(save_text_path, "w", "utf-8-sig") as f:
+            for te in text:
+                f.write(te)
+                f.write("\n")
+
+        abs_path = os.path.abspath(save_image_path)
 
         # create json
         json_data[f'{id}'] = []
@@ -113,5 +170,6 @@ def clear_file(path):
 if __name__ == "__main__":
     from src.ocr.models import load_model
     detector, reader = load_model()
-    image_process(detector = detector, reader = reader, path = "./src/images/02.jpg", lst=["none"])
+    # image_process(detector = detector, reader = reader, path = "./src/images/02.jpg", lst=["none"])
+    path_process(detector = detector, reader = reader, path = "./src/images")
     None

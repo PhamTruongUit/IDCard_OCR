@@ -168,6 +168,7 @@ def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=Fals
         # get index_line
 
         id, flag_param = fit_fields(lst_text)
+        
         if not check_index_fail(flag_param):
             id, flag_param = fit_fields_v2(lst_text)
 
@@ -186,15 +187,15 @@ def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=Fals
         else:
             print(f"_SUCCESS_ image")
     except:
-        image_crop = "None"
-        text_result = "None"
+        image_crop = image
+        text_result = lst_text
         if path:
             print(f"_FAIL_ file in the directory: {path}")
         else:
             print(f"_FAIL_ image")
         
     if debug:
-        if id == 0:
+        if id < 2:
             type_template = "CMND"
         else:
             type_template = "CCCD"
