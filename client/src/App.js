@@ -1,11 +1,11 @@
 import './App.css';
 import HeaderNavBar from './Components/Header/HeaderNavBar.js';
-import ImageCpn from './Components/ImageCpn/ImageCpn.js';
-import ProgressBars from './Components/Progress/ProgressBars';
-import SelectForm from './Components/SelectForm/SelectForm.js';
+// import ImageCpn from './Components/ImageCpn/ImageCpn.js';
+// import ProgressBars from './Components/Progress/ProgressBars';
+// import SelectForm from './Components/SelectForm/SelectForm.js';
 import Information from './Components/Information/Information';
 import NotFound from './Components/NotFound/NotFound'
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
 import Application from './Components/Application/Application';
 function App() {
