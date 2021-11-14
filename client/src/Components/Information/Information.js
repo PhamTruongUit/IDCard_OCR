@@ -112,24 +112,25 @@ function Information(props) {
                     </ul>
                 </div> */}
 
-                {about.map( char =>{
+                {about.map((char,index) =>{
                     return(
-                        <div data-aos={`${char.fade}`} data-aos-duration="2000" className={`character ${char.cn} col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6`}>
-                            <div className="icon-right"></div>
-                            <div className="material-1" style={{backgroundImage: `${char.color}`,}}>
-                                <div className="avatar" style={{backgroundImage: `url(${char.image})`}}></div>
+                        <div key={index} data-aos={`${char.fade}`} data-aos-duration="2000" className={`character ${char.cn} col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6`}>
+                            <div  className="icon-right"></div>
+                            <div  className="material-1" style={{backgroundImage: `${char.color}`,}}>
+                                <div  className="avatar" style={{backgroundImage: `url(${char.image})`}}></div>
                             </div>
-                            <div className="material-2" style={{backgroundImage: `${char.color}`,}}></div>
-                            <div className="material-3" style={{backgroundImage: `${char.color}`,}}></div>
-                            <div className="material-4" style={{backgroundImage: `${char.color}`,}}></div>
-                            <h2 className="name-avatar">{char.name}</h2>
-                            <ul className="skill">
-                                {char.skill.map(sk =>{
+                            <div  className="material-2" style={{backgroundImage: `${char.color}`,}}></div>
+                            <div  className="material-3" style={{backgroundImage: `${char.color}`,}}></div>
+                            <div  className="material-4" style={{backgroundImage: `${char.color}`,}}></div>
+                            <h2  className="name-avatar">{char.name}</h2>
+                            <ul  className="skill">
+                                {char.skill.map((sk,index1) =>{
                                     if(sk !== ''){
                                         return(
-                                            <li>{sk}</li>
+                                            <li key={index1}>{sk}</li>
                                         )
                                     }
+                                    return null
                                 })}
                                 <li className="no-type">
                                     <PhoneIphoneIcon style={{color: `${char.color1}`, fontSize: 20}}/>

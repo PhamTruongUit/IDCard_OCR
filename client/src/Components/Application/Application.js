@@ -9,7 +9,8 @@ import './Application.css'
 AOS.init();
 function Application() {
   const [progress, setProgress] = useState(false);
-  
+  const [result, setResult] = useState([]);
+  console.log(result);
   return (
    <BrowserRouter>    
         <div className=" container ">
@@ -21,7 +22,7 @@ function Application() {
               </div>
 
               <div className="Image_processing">
-                  <SelectForm setProgress={setProgress}/>
+                  <SelectForm setProgress={setProgress} setResult={setResult}/>
               </div>
             </div>
             {/* Result */}
@@ -36,6 +37,9 @@ function Application() {
 
                 <div className="image_info">
                   <span className="title">Information of Passport</span>
+                  {result.map((value,index)=>{
+                    return <span key={index}>{value}</span>
+                  })}
                   <span id="content" className="content"></span>
                 </div>
 

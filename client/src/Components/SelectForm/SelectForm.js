@@ -2,7 +2,7 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
 import ButtonApply from "../Button/ButtonApply.js";
-import Image_processing from "../Image_Processing/Image_processing.js";
+import ImageProcessing from "../Image_Processing/Image_processing.js";
 import "./SelectForm.css";
 import "./ToggleButton.css"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -11,10 +11,11 @@ import PropTypes from "prop-types";
 SelectForm.propTypes ={
   handleProgress: PropTypes.func,
   setProgress: PropTypes.func,
+  setResult: PropTypes.func,
 }
 
 export default function SelectForm(props) {
-  const { handleProgress, setProgress } = props;
+  const { handleProgress, setProgress, setResult } = props;
   const [myChose, setMyChose] = useState("auto");
   const [option, setOption] = useState([]);
   const [buttonToggle, setButtonToggle] = useState(false);
@@ -23,11 +24,11 @@ export default function SelectForm(props) {
     setMyChose(event.target.value);
     // console.log(event.target.value);
     if (event.target.value === "custom") {
-      var element = document.getElementsByClassName("Form_check_box")[0];
+      let element = document.getElementsByClassName("Form_check_box")[0];
       element.classList.remove("hidden_form_check_box");
       element.classList.add("flex");
     } else {
-      var element = document.getElementsByClassName("Form_check_box")[0];
+      let element = document.getElementsByClassName("Form_check_box")[0];
       element.classList.add("hidden_form_check_box");
       element.classList.remove("flex");
     }
@@ -53,8 +54,9 @@ export default function SelectForm(props) {
   function removeResult(){
     var e_image = document.getElementById('Image_processed')
     e_image.removeAttribute('src');
-    var e_info = document.getElementById('content');
-    e_info.innerText = '';
+    // var e_info = document.getElementById('content');
+    // e_info.innerText = '';
+    setResult([])
     var e_display = document.getElementsByClassName("result")[0];
     e_display.classList.add("hidden_result");
   }
@@ -65,8 +67,9 @@ export default function SelectForm(props) {
     var e_display = document.getElementsByClassName("result")[0];
     e_display.classList.remove("hidden_result");
     setProgress(false);
-    var e_info = document.getElementById('content');
-    e_info.innerText = text;
+    setResult(text);
+    // var e_info = document.getElementById('content');
+    // e_info.innerText = text;
   }
 
   function onImageLoaded() {
@@ -88,7 +91,7 @@ export default function SelectForm(props) {
     //--------------------
     axios({
       method: "post",
-      url: "http://localhost:3000/app",
+      url: "http://b7d6-1-55-220-244.ngrok.io/app", //http://localhost:3000/app
       data: bodyFormData,
     })
       .then(function (response) {
@@ -173,7 +176,7 @@ export default function SelectForm(props) {
       </div>
       
 
-      <Image_processing handleArray={handleCheckBox} />
+      <ImageProcessing handleArray={handleCheckBox} />
 
       {/* <button onClick={onImageLoaded}>APPLY</button> */}
 

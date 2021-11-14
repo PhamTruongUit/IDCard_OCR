@@ -103,3 +103,13 @@ stroke-dashoffset: -174;
 .svg2:hover svg {
     stroke-dashoffset: -374;
     }
+
+.hold{
+    width: 53px;
+    height: 34px;
+}
+
+.hold1{
+    width: 154px;
+    height: 34px;
+}

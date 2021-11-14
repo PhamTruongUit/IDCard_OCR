@@ -2,20 +2,20 @@ import './header.css';
 import React, { useRef, useEffect, useState }  from 'react';
 import FilterIcon from '@mui/icons-material/Filter';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 
 
 export default function HeaderNavBar(props) {
-    const [dimensions1, setdimensions1] = useState({width: 0, height: 0});
-    const [dimensions2, setdimensions2] = useState({width: 0, height: 0});
+    // const [dimensions1, setdimensions1] = useState({width: 0, height: 0});
+    // const [dimensions2, setdimensions2] = useState({width: 0, height: 0});
 
-    useEffect(()=>{
-        const getWidthHeight = document.getElementsByClassName("hold");
-        setdimensions1({width: getWidthHeight[0].offsetWidth, height: getWidthHeight[0].offsetHeight});
-        setdimensions2({width: getWidthHeight[1].offsetWidth, height: getWidthHeight[1].offsetHeight});
+    // useEffect(()=>{
+    //     const getWidthHeight = document.getElementsByClassName("hold");
+    //     setdimensions1({width: getWidthHeight[0].offsetWidth, height: getWidthHeight[0].offsetHeight});
+    //     setdimensions2({width: getWidthHeight[1].offsetWidth, height: getWidthHeight[1].offsetHeight});
 
-    },[])
+    // },[])
     return (
         <div className="background-navbar">
             <div className="header-navbar container">
@@ -26,46 +26,56 @@ export default function HeaderNavBar(props) {
                     <ul>
                         <li>
                             {/* <FilterIcon/> */}
-                            <Link to="/App" className="hold svg1  btn1">
+                            <NavLink to="/App" 
+                                     className="hold svg1  btn1"
+                                     style={isActive => ({
+                                        color: isActive ? "#FFE9CF" : "white"
+                                      })} 
+                            >
                                 <p>APP</p>
-                                <svg className="svg_css" width={`${dimensions1.width}`} height={`${dimensions1.height}`} viewBox={`0 0 ${dimensions1.width} ${dimensions1.height}`}> 
+                                <svg className="svg_css" width={`53px`} height={`34px`} viewBox={`0 0 53 34`}> 
 
-                                <polyline points={`${Math.floor(dimensions1.width / 2)},0
-                                    ${dimensions1.width -1},0
-                                    ${dimensions1.width},${dimensions1.height}
-                                    ${Math.floor(dimensions1.width/ 2)},${dimensions1.height}                            
+                                <polyline points={`${Math.floor(53 / 2)},0
+                                    52,0
+                                    53,34
+                                    ${Math.floor(53/ 2)},34                            
                                 `} />
 
-                                <polyline points={`${dimensions1.width / 2},${dimensions1.height}  
-                                    0,${dimensions1.height} 
+                                <polyline points={`${53 / 2},${34}  
+                                    0,${34} 
                                     0,0
-                                    ${dimensions1.width / 2},0
+                                    ${53 / 2},0
                                 
                                 `} />
                                 </svg>
-                            </Link>
+                            </NavLink>
                            
                         </li>
 
                         <li>
                             {/* <PermIdentityIcon /> */}
-                            <Link to="Information" className="hold svg2  btn1">
+                            <NavLink to="Information" 
+                                     className="hold1 svg2  btn1" 
+                                     style={isActive => ({
+                                        color: isActive ? "#FFE9CF" : "white"
+                                      })} 
+                            >
                                 <p>Information</p>
-                                <svg className="svg_css" width={`${dimensions2.width}`} height={`${dimensions2.height}`} viewBox={`0 0 ${dimensions2.width} ${dimensions1.height}`}> 
-                                <polyline points={`${Math.floor(dimensions2.width / 2)},0
-                                    ${dimensions2.width },0
-                                    ${dimensions2.width },${dimensions2.height}
-                                    ${Math.floor(dimensions2.width/ 2)},${dimensions2.height}                            
+                                <svg className="svg_css" width={`154px`} height={`34px`} viewBox={`0 0 154 34`}> 
+                                <polyline points={`${Math.floor(154 / 2)},0
+                                    154,0
+                                    154,34
+                                    ${Math.floor(154/ 2)},34                            
                                 `} />
 
-                                <polyline points={`${dimensions2.width / 2},${dimensions2.height}  
-                                    0,${dimensions2.height} 
+                                <polyline points={`${154 / 2},34
+                                    0,34
                                     0,0
-                                    ${dimensions2.width / 2},0
+                                    ${154 / 2},0
 
                                 `} />
                                 </svg>
-                            </Link>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
