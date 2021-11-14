@@ -26,7 +26,7 @@ export default function HeaderNavBar(props) {
                     <ul>
                         <li>
                             {/* <FilterIcon/> */}
-                            <NavLink to="/App" 
+                            <NavLink to="/" exact={true} 
                                      className="hold svg1  btn1"
                                      style={isActive => ({
                                         color: isActive ? "#FFE9CF" : "white"
@@ -54,7 +54,7 @@ export default function HeaderNavBar(props) {
 
                         <li>
                             {/* <PermIdentityIcon /> */}
-                            <NavLink to="Information" 
+                            <NavLink to="/Information" 
                                      className="hold1 svg2  btn1" 
                                      style={isActive => ({
                                         color: isActive ? "#FFE9CF" : "white"

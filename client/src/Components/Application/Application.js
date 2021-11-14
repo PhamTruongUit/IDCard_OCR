@@ -30,17 +30,18 @@ function Application() {
 
               <div className="image_processed">
 
-                <img id="Image_processed"></img>
+                <img alt="" id="Image_processed"></img>
               </div>
 
               <div className="result_info">
 
                 <div className="image_info">
-                  <span className="title">Information of Passport</span>
-                  {result.map((value,index)=>{
-                    return <span key={index}>{value}</span>
+                  <span className="title">Text Recognize</span>
+                  {Array.isArray(result) && result.map((value,index)=>{
+                    return <p className="content" key={index}>{value}</p>
                   })}
-                  <span id="content" className="content"></span>
+                  {!Array.isArray(result) && <span className="content">{result}</span>}
+                  
                 </div>
 
               </div>
