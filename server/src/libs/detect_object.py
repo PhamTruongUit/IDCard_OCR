@@ -3,7 +3,7 @@ import numpy as np
 from src.libs import read_show_data as rsd
 from src.libs.corners_detector import auto_corners
 
-def detect_object(image='', path='', debug=False):
+def auto_detect(image='', path='', debug=False):
     if path:
         if debug:
             image = rsd.read(path)
