@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 from src.libs import read_show_data as rsd 
 
 def histogram(image='', path='', debug=False, clipLimit=2.0, tileGridSize=(2,2)):
