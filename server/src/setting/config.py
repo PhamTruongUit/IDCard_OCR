@@ -2,8 +2,10 @@ from configparser import ConfigParser as cfg
 
 config = cfg()
 config.read("./config.ini", encoding="utf8")
-config.PORT_SERVER = config.get("server", "port")
+
 config.HOST = config.get("hosting","address")
+config.SERVER = config.get("server", "port")
+config.CLIENT = config.get("client", "port")
 
 device = config.get("models","device")
 if device == "cuda":

@@ -10,8 +10,15 @@ from src.setting.config import config
 import logging
 from datetime import datetime
 
-def preprocess(image, lst=[]):
+def get_option(lst_encode):
+    lst_decode = []
     OPTIONS = config.OPTIONS
+    for attr in lst_encode:
+        opt = OPTIONS[attr]
+        lst_decode.append(opt)
+    return lst_decode
+
+def preprocess(image, lst=[]):
     if lst:
         if lst[0] == 'none':
             None      
@@ -21,25 +28,24 @@ def preprocess(image, lst=[]):
         else:
             # image processing
             for attr in lst:
-                opt = OPTIONS[attr]
-                # print(opt)
-                # call function libs.attribute()
                 try:
-                    image = getattr(libs, opt)(image)
+                    image = getattr(libs, attr)(image)
                 except:
                     None
     return image
 
-def image_process(detector, reader, image=None, path="", lst=[]):
+def image_process(detector, reader, image=None, path="", lst_encode=[]):
     if path:
         try:
             image = read(path)
         except: 
             raise ValueError(f'{path} does not exist')
 
+    lst_decode = get_option(lst_encode)
+    print(lst_decode)
     # pre processing
     start_process = time.time()
-    image_result = preprocess(image, lst)
+    image_result = preprocess(image, lst_decode)
     end_process = time.time()
 
     # # call model
@@ -52,7 +58,7 @@ def image_process(detector, reader, image=None, path="", lst=[]):
     handlers = [logging.FileHandler('./logs/request.log', 'a', 'utf-8')]
     logging.basicConfig(handlers=handlers, level=logging.DEBUG)
     logging.info(f'Datetime: {datetime.now()}')
-    logging.info(f'List Option: {lst}')
+    logging.info(f'List Option: {lst_decode}')
     logging.info(f'Time preprocess image: {round(end_process-start_process, 4)}')
     logging.info(f'Time recognize text: {round(end_ocr-start_ocr, 4)}')
     
