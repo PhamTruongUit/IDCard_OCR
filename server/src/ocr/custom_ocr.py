@@ -142,34 +142,49 @@ def fit_fields_v2(lst_text, index_start=0):
 
 def check_index_fail(flag_param):
     if flag_param == 0:
-        return False
+        return True
 
     if len(flag_param) == 2:
         if flag_param[0] <= 0 or flag_param[1] <= 0: 
-            return False
+            return True
         if flag_param[0] >= flag_param[1]: 
-            return False
+            return True
 
-    return True
+    return False
+
+def raise_exception(type_r=True,path=""):
+    str = "_SUCCESS_" if type_r else "_FAILURE_" 
+    if path:
+        print(f"{str} file in the directory: {path}")
+    else:
+        print(f"{str} image")
 
 def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=False):
 
     if path:
         image = read(path)  
 
+    #None bounding box
     try:
         bounds = reader.readtext(image, flag = True)
         box = ocr.boxes_line(bounds)
+    except:
+        image_crop = image
+        text_result = "None"
+
+    # print(lst_text)
+    # fit_fields(lst_text, TEMPLATES)
+    # get index_line
+    try:
         lst_lines = ocr.crop_lines(image, box)
-        lst_text = ocr.OCR(lst_lines, detector)
+        lst_text = ocr.OCR(lst_lines, detector) 
+    except:
+        lst_text = "None"
 
-        # print(lst_text)
-        # fit_fields(lst_text, TEMPLATES)
-        # get index_line
-
+    #None get paragraph
+    try:       
         id, flag_param = fit_fields(lst_text)
-        
-        if not check_index_fail(flag_param):
+        if check_index_fail(flag_param):
             id, flag_param = fit_fields_v2(lst_text)
 
         pos_start = flag_param[0]
@@ -181,18 +196,12 @@ def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=Fals
         position = ocr.cluster_paragraph(box_temp)
         image_crop = ocr.crop_lines(image, [position])[0]
         text_result = lst_text[pos_start:pos_end+1]
+        raise_exception(type_r=True, path=path)
 
-        if path:
-            print(f"_SUCCESS_ file in the directory: {path}")
-        else:
-            print(f"_SUCCESS_ image")
     except:
         image_crop = image
         text_result = lst_text
-        if path:
-            print(f"_FAIL_ file in the directory: {path}")
-        else:
-            print(f"_FAIL_ image")
+        raise_exception(type_r=False, path=path)
         
     if debug:
         if id < 2:

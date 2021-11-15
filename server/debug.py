@@ -7,10 +7,11 @@ from src.libs.read_show_data import read, show
 
 if __name__ == '__main__':
     # image = read("src/images/03.jpg")
-    # image = libs.rotate(image, 80)
+    # result = libs.inc_brightness(image, 50)
     # result = libs.auto_rotation(image)
     # show([image, result])
     # detector, reader = load_model()
+    # ocr_custom(detector=detector, reader=reader, image = image, debug=True)
     # ocr_custom(detector=detector, reader=reader, path = "src/images/03.jpg", debug=True)
     # if len(sys.argv) < 2: 
     #     # print(len(sys.argv))

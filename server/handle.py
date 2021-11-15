@@ -18,7 +18,7 @@ def preprocess(image, lst=[]):
             None      
         elif lst[0] == 'auto':
             image = getattr(libs, "inc_contract")(image)
-            image = getattr(libs, "detect_object")(image)
+            image = getattr(libs, "auto_detect")(image)
         else:
             # image processing
             for attr in lst:

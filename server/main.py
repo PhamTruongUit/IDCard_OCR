@@ -20,18 +20,22 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/app', methods=['POST'])
 @cross_origin(origin='*')
 def process_image():
-    obj = request.form
-    image_base64 = obj['img']
-    lst = obj['lst']
-    # print(lst)
-    lst = json.loads(lst)
-    image = ConvBase64toImage(image_base64)
-    image, text = image_process(detector = detector, reader = reader, image=image, lst=lst)
-    image_base64 = ConvImagetoBase64(image)
-    return {
-            'image': image_base64,
-            'text': text
-            }
+    if request.method == 'POST':
+        obj = request.form
+        print("INFO: Get Request...")
+        image_base64 = obj['img']
+        lst = obj['lst']
+        print(lst)
+        lst = json.loads(lst)
+        image = ConvBase64toImage(image_base64)
+        image, text = image_process(detector = detector, reader = reader, image=image, lst=lst)
+        image_base64 = ConvImagetoBase64(image)
+        return {
+                'image': image_base64,
+                'text': text
+                }
+    else:
+        return "Please use POST method"
             
 @app.route('/debug', methods=['GET'])
 @cross_origin(origin='*')

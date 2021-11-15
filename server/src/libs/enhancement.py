@@ -1,15 +1,17 @@
 import cv2
 import numpy as np
 
-def inc_brightness(image, brightness=30):
-    temp = np.array(image)
-    image = np.zeros_like(temp)
-    image = temp + brightness
-    image[image > 255] = 255
-    image[image < 0] = 0
-    return image.astype(np.uint8)
+def inc_brightness(image, brightness=40):
+    temp = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(temp)
+    lim = 255 - brightness
+    v[v > lim] = 255
+    v[v <= lim] += brightness
+    temp = cv2.merge((h, s, v))
+    image = cv2.cvtColor(temp, cv2.COLOR_HSV2BGR)
+    return image
 
-def dec_brightness(image, brightness=-30):
+def dec_brightness(image, brightness=-40):
     temp = np.array(image)
     image = np.zeros_like(temp)
     image = temp + brightness
