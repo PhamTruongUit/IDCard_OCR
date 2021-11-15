@@ -10,6 +10,7 @@ if __name__ == '__main__':
     # result = libs.inc_brightness(image, 50)
     # result = libs.auto_rotation(image)
     # show([image, result])
+    # load_model()
     # detector, reader = load_model()
     # ocr_custom(detector=detector, reader=reader, image = image, debug=True)
     # ocr_custom(detector=detector, reader=reader, path = "src/images/03.jpg", debug=True)

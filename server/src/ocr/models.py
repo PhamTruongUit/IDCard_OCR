@@ -1,17 +1,19 @@
 import easyocr
 from vietocr.tool.config import Cfg
 from vietocr.tool.predictor import Predictor
+from src.setting.config import config
 
 def load_model():
+    DEVICE = config.DEVICE
+    WEIGHT = config.WEIGHT
+
     print('INFO: Loading model...')
     # vietocr
     custom = Cfg.load_config_from_name('vgg_transformer')
     custom['cnn']['pretrained']=False
     custom['predictor']['beamsearch']=False
-    custom['device'] = 'cpu'
-    custom['weights'] = './src/ocr/transformerocr.pth'
-    # custom['device'] = 'cuda:0'
-    # custom['weights'] = 'https://drive.google.com/uc?id=13327Y1tz1ohsm5YZMyXVMPIOjoOA0OaA'
+    custom['device'] = DEVICE
+    custom['weights'] = WEIGHT
     detector = Predictor(custom)
 
     # easyocr

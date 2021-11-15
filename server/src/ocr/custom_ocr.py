@@ -1,15 +1,10 @@
 import src.ocr as ocr
-import easyocr
-from vietocr.tool.predictor import Predictor
-from vietocr.tool.config import Cfg
-import matplotlib.pyplot as plt
 from src.setting.config import config
 from numpy import argmax
 from src.libs.read_show_data import read, show
 
-TEMPLATES = config.TEMPLATES
-
 def fit_fields(lst_text, index_start=0):
+    TEMPLATES = config.TEMPLATES
     temp = ocr.format_text(lst_text)
     templates = ocr.format_fields(TEMPLATES)
     lst_count = [0]*len(templates)
@@ -74,6 +69,7 @@ def fit_fields(lst_text, index_start=0):
     return id, flag_param[id]
 
 def fit_fields_v2(lst_text, index_start=0):
+    TEMPLATES = config.TEMPLATES
     temp = ocr.format_text(lst_text)
     templates = ocr.format_fields(TEMPLATES)
     lst_count = [0]*len(templates)

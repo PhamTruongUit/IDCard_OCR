@@ -1,18 +1,17 @@
 from src import libs
 from src.ocr import ocr_custom
-from src.libs.read_show_data import read, show
+from src.libs.read_show_data import read
 from PIL import Image
 import os
 import gdown
 from pyvi import ViUtils
 import time
 from src.setting.config import config
-import codecs
-
-OPTIONS = config.OPTIONS
+import logging
+from datetime import datetime
 
 def preprocess(image, lst=[]):
-
+    OPTIONS = config.OPTIONS
     if lst:
         if lst[0] == 'none':
             None      
@@ -43,25 +42,32 @@ def image_process(detector, reader, image=None, path="", lst=[]):
     image_result = preprocess(image, lst)
     end_process = time.time()
 
-    # show([image_result])
     # # call model
     start_ocr = time.time()
     obj = ocr_custom(detector=detector, reader=reader, image = image_result)
     text = obj["text"]
     end_ocr = time.time()
 
-    print(f'Time preprocess image: {round(end_process-start_process, 4)}')
-    print(f'Time recognize text: {round(end_ocr-start_ocr, 4)}')
+    #logger
+    handlers = [logging.FileHandler('./logs/request.log', 'a', 'utf-8')]
+    logging.basicConfig(handlers=handlers, level=logging.DEBUG)
+    logging.info(f'Datetime: {datetime.now()}')
+    logging.info(f'List Option: {lst}')
+    logging.info(f'Time preprocess image: {round(end_process-start_process, 4)}')
+    logging.info(f'Time recognize text: {round(end_ocr-start_ocr, 4)}')
     
     return image_result, text
 
-def path_process(detector, reader, path):
+def path_process(detector, reader, path="temp"):
     json_data = {} 
     result_path = "results"
     list_files = os.listdir(path)  
 
     lst_tail = ['jpg','jpeg','png']
 
+    handlers = [logging.FileHandler('./logs/debug.log', 'w', 'utf-8')]
+    logging.basicConfig(handlers=handlers, level=logging.DEBUG)
+    time_average = []
     for id in range(len(list_files)):
         file = list_files[id]
         name = file.split('.')[0]
@@ -79,7 +85,9 @@ def path_process(detector, reader, path):
 
         file_path = os.path.join(path,f'{name}.{tail}')
         # print(file_path)
+        start_ocr = time.time()
         obj = ocr_custom(detector=detector, reader=reader, path=file_path)
+        end_ocr = time.time()
         image = obj["img"]
         text = obj["text"]
 
@@ -88,12 +96,16 @@ def path_process(detector, reader, path):
 
         Image.fromarray(image).save(save_image_path)
 
-        with codecs.open(save_text_path, "w", "utf-8-sig") as f:
-            for te in text:
-                f.write(te)
-                f.write("\n")
-
         abs_path = os.path.abspath(save_image_path)
+        t = round(end_ocr-start_ocr, 4)
+        logging.info(f'Datetime: {datetime.now()}')
+        logging.info(f'Time recognize text: {t}')
+        logging.info(f'Img: {abs_path}')
+        logging.info(f'Text:')
+        for te in text:
+            logging.info(f'     {te}')
+        
+        time_average.append(t)
 
         # create json
         json_data[f'{id}'] = []
@@ -101,6 +113,9 @@ def path_process(detector, reader, path):
             "img": f'{abs_path}',
             "text": text
         })
+    t_average = sum(time_average)/len(time_average)
+    logging.info(f'Time average: {t_average}')
+
     return json_data
 
 def url_process(detector, reader, url_drive):
@@ -117,6 +132,9 @@ def url_process(detector, reader, url_drive):
 
     lst_tail = ['jpg','jpeg','png']
 
+    handlers = [logging.FileHandler('./logs/debug.log', 'w', 'utf-8')]
+    logging.basicConfig(handlers=handlers, level=logging.DEBUG)
+    time_average = []
     for id in range(len(list_files)):
         file = list_files[id]
         name = file.split('.')[0]
@@ -134,7 +152,9 @@ def url_process(detector, reader, url_drive):
 
         file_path = os.path.join(temp_path,f'{name}.{tail}')
         # print(file_path)
+        start_ocr = time.time()
         obj = ocr_custom(detector=detector, reader=reader, path=file_path)
+        end_ocr = time.time()
         image = obj["img"]
         text = obj["text"]
 
@@ -143,12 +163,16 @@ def url_process(detector, reader, url_drive):
 
         Image.fromarray(image).save(save_image_path)
 
-        with codecs.open(save_text_path, "w", "utf-8-sig") as f:
-            for te in text:
-                f.write(te)
-                f.write("\n")
-
         abs_path = os.path.abspath(save_image_path)
+        t = round(end_ocr-start_ocr, 4)
+        logging.info(f'Datetime: {datetime.now()}')
+        logging.info(f'Time recognize text: {t}')
+        logging.info(f'Img: {abs_path}')
+        logging.info(f'Text:')
+        for te in text:
+            logging.info(f'     {te}')
+
+        time_average.append(t)
 
         # create json
         json_data[f'{id}'] = []
@@ -156,6 +180,8 @@ def url_process(detector, reader, url_drive):
             "img": f'{abs_path}',
             "text": text
         })
+    t_average = sum(time_average)/len(time_average)
+    logging.info(f'Time average: {t_average}')
     
     # remove temp
     clear_file (temp_path)
@@ -168,8 +194,8 @@ def clear_file(path):
             os.remove(os.path.join(path, f))
 
 if __name__ == "__main__":
-    from src.ocr.models import load_model
-    detector, reader = load_model()
+    # from src.ocr.models import load_model
+    # detector, reader = load_model()
     # image_process(detector = detector, reader = reader, path = "./src/images/02.jpg", lst=["none"])
-    path_process(detector = detector, reader = reader, path = "./src/images")
+    # path_process(detector = detector, reader = reader, path = "./src/images")
     None
