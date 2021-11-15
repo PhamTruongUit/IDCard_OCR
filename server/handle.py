@@ -23,7 +23,7 @@ def preprocess(image, lst=[]):
         if lst[0] == 'none':
             None      
         elif lst[0] == 'auto':
-            image = getattr(libs, "inc_contract")(image)
+            image = getattr(libs, "auto_rotation")(image)
             image = getattr(libs, "auto_detect")(image)
         else:
             # image processing
