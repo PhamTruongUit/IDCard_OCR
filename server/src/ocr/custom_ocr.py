@@ -57,11 +57,12 @@ def fit_fields(lst_text, index_start=0):
     id = argmax(lst_count) 
 
     # check exception
-    try:
-        flag_param[id][0] -= 1
-        flag_param[id][1] += 1
-    except:
-        None
+    if id < 4:
+        try:
+            flag_param[id][0] -= 1
+            flag_param[id][1] += 1
+        except:
+            None
 
     # print(id)
     # print(flag_param[id])
@@ -120,19 +121,16 @@ def fit_fields_v2(lst_text, index_start=0):
         for id in lst_id:
             if default_count[id] > default_count[fit_id]:
                     fit_id = id
-
-        # check exception
-        if fit_id == 8:
-            flag_param[fit_id][1] -= 1
     
     else:
         fit_id = lst_id[0]
 
-    try:
-        flag_param[fit_id][0] -= 1
-        flag_param[fit_id][1] += 1
-    except:
-        None
+    if fit_id < 4:
+        try:
+            flag_param[fit_id][0] -= 1
+            flag_param[fit_id][1] += 1
+        except:
+            None
     # print(fit_id, flag_param[fit_id])
     return fit_id, flag_param[fit_id]
 
@@ -202,8 +200,10 @@ def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=Fals
     if debug:
         if id < 2:
             type_template = "CMND"
-        else:
+        elif id < 4:
             type_template = "CCCD"
+        else:
+            type_template = "Exception"
         show([image_crop], [f'Type: {type_template}'] )
     else:
         if save_img:

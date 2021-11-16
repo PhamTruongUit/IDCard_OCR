@@ -6,7 +6,7 @@ from src import libs
 from src.libs.read_show_data import read, show
 
 if __name__ == '__main__':
-    # image = read("src/images/03.jpg")
+    # image = read("src/images/BLX02.JPEG")
     # result = libs.inc_brightness(image, 50)
     # result = libs.auto_rotation(image)
     # show([image, result])
