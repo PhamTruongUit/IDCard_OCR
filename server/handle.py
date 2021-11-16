@@ -67,6 +67,9 @@ def image_process(detector, reader, image=None, path="", lst_encode=[]):
 def path_process(detector, reader, path="temp"):
     json_data = {} 
     result_path = "results"
+
+    clear_file(result_path)
+    
     list_files = os.listdir(path)  
 
     lst_tail = ['jpg','jpeg','png']
