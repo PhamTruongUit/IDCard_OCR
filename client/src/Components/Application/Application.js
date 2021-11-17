@@ -10,7 +10,7 @@ AOS.init();
 function Application() {
   const [progress, setProgress] = useState(false);
   const [result, setResult] = useState([]);
-  console.log(result);
+  // console.log(result);
   return (
    <BrowserRouter>    
         <div className=" container ">

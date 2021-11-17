@@ -20,10 +20,12 @@ export default function SelectForm(props) {
   const [option, setOption] = useState([]);
   const [buttonToggle, setButtonToggle] = useState(false);
   // const classes = useStyles();
-  function handleChange(event) {
-    setMyChose(event.target.value);
+  function handleChange(event, newValue) {
+    
+    setMyChose(newValue);
+    console.log(newValue);
     // console.log(event.target.value);
-    if (event.target.value === "custom") {
+    if (newValue === "custom") {
       let element = document.getElementsByClassName("Form_check_box")[0];
       element.classList.remove("hidden_form_check_box");
       element.classList.add("flex");
@@ -79,6 +81,7 @@ export default function SelectForm(props) {
     console.log(img)
     var base64 = getBase64Image(img);
     var img_processing = get_process();
+    console.log(img_processing)
     var bodyFormData = new FormData();
     bodyFormData.append("img", base64);
     bodyFormData.append("lst", img_processing);
@@ -124,7 +127,7 @@ export default function SelectForm(props) {
     } else {
       values.push(myChose);
     }
-    console.log(values);
+    // console.log(values);
     values = JSON.stringify(values);
     return values;
   }
@@ -163,7 +166,7 @@ export default function SelectForm(props) {
           <ToggleButtonGroup
             value={myChose}
             color="secondary"
-            // exclusive
+            exclusive
             onChange={handleChange}
           >
             <ToggleButton value="auto" >Auto</ToggleButton>
