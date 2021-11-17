@@ -1,15 +1,10 @@
 import src.ocr as ocr
-import easyocr
-from vietocr.tool.predictor import Predictor
-from vietocr.tool.config import Cfg
-import matplotlib.pyplot as plt
 from src.setting.config import config
 from numpy import argmax
 from src.libs.read_show_data import read, show
 
-TEMPLATES = config.TEMPLATES
-
 def fit_fields(lst_text, index_start=0):
+    TEMPLATES = config.TEMPLATES
     temp = ocr.format_text(lst_text)
     templates = ocr.format_fields(TEMPLATES)
     lst_count = [0]*len(templates)
@@ -62,11 +57,12 @@ def fit_fields(lst_text, index_start=0):
     id = argmax(lst_count) 
 
     # check exception
-    try:
-        flag_param[id][0] -= 1
-        flag_param[id][1] += 1
-    except:
-        None
+    if id < 4:
+        try:
+            flag_param[id][0] -= 1
+            flag_param[id][1] += 1
+        except:
+            None
 
     # print(id)
     # print(flag_param[id])
@@ -74,6 +70,7 @@ def fit_fields(lst_text, index_start=0):
     return id, flag_param[id]
 
 def fit_fields_v2(lst_text, index_start=0):
+    TEMPLATES = config.TEMPLATES
     temp = ocr.format_text(lst_text)
     templates = ocr.format_fields(TEMPLATES)
     lst_count = [0]*len(templates)
@@ -124,52 +121,64 @@ def fit_fields_v2(lst_text, index_start=0):
         for id in lst_id:
             if default_count[id] > default_count[fit_id]:
                     fit_id = id
-
-        # check exception
-        if fit_id == 8:
-            flag_param[fit_id][1] -= 1
     
     else:
         fit_id = lst_id[0]
 
-    try:
-        flag_param[fit_id][0] -= 1
-        flag_param[fit_id][1] += 1
-    except:
-        None
+    if fit_id < 4:
+        try:
+            flag_param[fit_id][0] -= 1
+            flag_param[fit_id][1] += 1
+        except:
+            None
     # print(fit_id, flag_param[fit_id])
     return fit_id, flag_param[fit_id]
 
 def check_index_fail(flag_param):
     if flag_param == 0:
-        return False
+        return True
 
     if len(flag_param) == 2:
         if flag_param[0] <= 0 or flag_param[1] <= 0: 
-            return False
+            return True
         if flag_param[0] >= flag_param[1]: 
-            return False
+            return True
 
-    return True
+    return False
+
+def raise_exception(type_r=True,path=""):
+    str = "_SUCCESS_" if type_r else "_FAILURE_" 
+    if path:
+        print(f"{str} file in the directory: {path}")
+    else:
+        print(f"{str} image")
 
 def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=False):
 
     if path:
         image = read(path)  
 
+    #None bounding box
     try:
         bounds = reader.readtext(image, flag = True)
         box = ocr.boxes_line(bounds)
+    except:
+        image_crop = image
+        text_result = "None"
+
+    # print(lst_text)
+    # fit_fields(lst_text, TEMPLATES)
+    # get index_line
+    try:
         lst_lines = ocr.crop_lines(image, box)
-        lst_text = ocr.OCR(lst_lines, detector)
+        lst_text = ocr.OCR(lst_lines, detector) 
+    except:
+        lst_text = "None"
 
-        # print(lst_text)
-        # fit_fields(lst_text, TEMPLATES)
-        # get index_line
-
+    #None get paragraph
+    try:       
         id, flag_param = fit_fields(lst_text)
-        
-        if not check_index_fail(flag_param):
+        if check_index_fail(flag_param):
             id, flag_param = fit_fields_v2(lst_text)
 
         pos_start = flag_param[0]
@@ -181,24 +190,20 @@ def ocr_custom(detector, reader, image=None, path="", save_img=False ,debug=Fals
         position = ocr.cluster_paragraph(box_temp)
         image_crop = ocr.crop_lines(image, [position])[0]
         text_result = lst_text[pos_start:pos_end+1]
+        raise_exception(type_r=True, path=path)
 
-        if path:
-            print(f"_SUCCESS_ file in the directory: {path}")
-        else:
-            print(f"_SUCCESS_ image")
     except:
         image_crop = image
         text_result = lst_text
-        if path:
-            print(f"_FAIL_ file in the directory: {path}")
-        else:
-            print(f"_FAIL_ image")
+        raise_exception(type_r=False, path=path)
         
     if debug:
         if id < 2:
             type_template = "CMND"
-        else:
+        elif id < 4:
             type_template = "CCCD"
+        else:
+            type_template = "Exception"
         show([image_crop], [f'Type: {type_template}'] )
     else:
         if save_img:
