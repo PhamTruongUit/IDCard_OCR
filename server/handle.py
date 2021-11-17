@@ -11,6 +11,8 @@ import logging
 from datetime import datetime
 
 def get_option(lst_encode):
+    if lst_encode[0] == 'none' or lst_encode[0] == 'auto':
+        return lst_encode
     lst_decode = []
     OPTIONS = config.OPTIONS
     for attr in lst_encode:
