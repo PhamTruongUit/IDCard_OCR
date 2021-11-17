@@ -10,7 +10,6 @@ from src.setting.config import config
 import logging
 from datetime import datetime
 
-
 def get_option(lst_encode):
     if lst_encode[0] == 'none' or lst_encode[0] == 'auto':
         return lst_encode
@@ -20,7 +19,6 @@ def get_option(lst_encode):
         opt = OPTIONS[attr]
         lst_decode.append(opt)
     return lst_decode
-
 
 def preprocess(image, lst=[]):
     if lst:
@@ -37,7 +35,6 @@ def preprocess(image, lst=[]):
                 except:
                     None
     return image
-
 
 def image_process(detector, reader, image=None, path="", lst_encode=[]):
     if path:
@@ -69,7 +66,6 @@ def image_process(detector, reader, image=None, path="", lst_encode=[]):
     logging.info(f'Time recognize text: {round(end_ocr-start_ocr, 4)}')
 
     return image_result, text
-
 
 def path_process(detector, reader, path="temp"):
     json_data = {}
@@ -133,7 +129,6 @@ def path_process(detector, reader, path="temp"):
     logging.info(f'Time average: {t_average}')
 
     return json_data
-
 
 def url_process(detector, reader, url_drive):
     temp_path = "temp"
@@ -205,12 +200,10 @@ def url_process(detector, reader, url_drive):
 
     return json_data
 
-
 def clear_file(path):
     for f in os.listdir(path):
         if f != "__init__.py":
             os.remove(os.path.join(path, f))
-
 
 if __name__ == "__main__":
     # from src.ocr.models import load_model
