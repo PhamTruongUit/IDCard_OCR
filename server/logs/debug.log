@@ -1,5 +1,16 @@
-INFO:root:Datetime: 2021-11-15 19:51:25.904403
-INFO:root:Time recognize text: 8.7402
+INFO:root:Datetime: 2021-11-18 13:36:14.689487
+INFO:root:Time recognize text: 12.1467
+INFO:root:Img: D:\CS406\IDCard_OCR\server\results\00.jpg
+INFO:root:Text:
+INFO:root:     079180057769
+INFO:root:     Họ và tên: Triệu lệ dinh
+INFO:root:     anh may ovison
+INFO:root:     Giới tính: Nữ
+INFO:root:     Quê quán: Thừa Thiên Huế
+INFO:root:     Nơi thường trú: - Vĩnh Hải
+INFO:root:     Có giá trị đến: 01/01/2040
+INFO:root:Datetime: 2021-11-18 13:36:33.553482
+INFO:root:Time recognize text: 18.808
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\01.jpg
 INFO:root:Text:
 INFO:root:     038159001769
@@ -10,8 +21,8 @@ INFO:root:     Giới tính: Nữ
 INFO:root:     Xã Quê quán: Cẩm Bình, Cẩm Thủy, Thanh Hóa
 INFO:root:     Nơi thường trú: Cẩm Bình, Cẩm Thủy
 INFO:root:     Thanh Hóa
-INFO:root:Datetime: 2021-11-15 19:51:35.039893
-INFO:root:Time recognize text: 9.126
+INFO:root:Datetime: 2021-11-18 13:36:49.068365
+INFO:root:Time recognize text: 15.5039
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\02.jpg
 INFO:root:Text:
 INFO:root:     số 385777628
@@ -21,8 +32,8 @@ INFO:root:     Nguyễn quản cai Huyện Yên Mô
 INFO:root:     Ninh Bình
 INFO:root:     Nơi ĐKHK thường trứ: Long Thành, TT
 INFO:root:     Phước Long, Phước Long, Bạc Liêu
-INFO:root:Datetime: 2021-11-15 19:51:45.596259
-INFO:root:Time recognize text: 10.5048
+INFO:root:Datetime: 2021-11-18 13:37:06.074363
+INFO:root:Time recognize text: 16.952
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\03.jpg
 INFO:root:Text:
 INFO:root:     038197002120
@@ -33,8 +44,8 @@ INFO:root:     Giới tính: Nữ Quốc tịch: Việt Nam
 INFO:root:     Quê quán: Nga Nhân, Nga Sơn, Thanh Hóa
 INFO:root:     Nơi thường trứ: Nga Nhân, Nga Sơn
 INFO:root:     Có giá trị đến: 20106.2035.1975.1000 Thanh Hóa
-INFO:root:Datetime: 2021-11-15 19:51:51.382501
-INFO:root:Time recognize text: 5.7802
+INFO:root:Datetime: 2021-11-18 13:37:14.455361
+INFO:root:Time recognize text: 8.369
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\04.jpg
 INFO:root:Text:
 INFO:root:     001088013869
@@ -44,8 +55,8 @@ INFO:root:     Giới tính: nam
 INFO:root:     quán: Cao Bằng
 INFO:root:     Nơi thường trù: Hai Bà Trưng, Hà Nỗi
 INFO:root:     Có giá trị đến: 06/09/2028
-INFO:root:Datetime: 2021-11-15 19:52:07.453651
-INFO:root:Time recognize text: 16.0446
+INFO:root:Datetime: 2021-11-18 13:37:39.187352
+INFO:root:Time recognize text: 24.693
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\05.jpg
 INFO:root:Text:
 INFO:root:     034099003616
@@ -56,8 +67,8 @@ INFO:root:     Giới tính: Nam
 INFO:root:     Quê quán: Đông Cơ, Tiền Hải, Thái Bình
 INFO:root:     Nơi thường trú: Khu phố 6, Phường 4
 INFO:root:     Thành phố Tây Ninh, Tây Ninh
-INFO:root:Datetime: 2021-11-15 19:52:47.821587
-INFO:root:Time recognize text: 40.2389
+INFO:root:Datetime: 2021-11-18 13:38:52.195176
+INFO:root:Time recognize text: 71.1146
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\06.jpg
 INFO:root:Text:
 INFO:root:     045200004926
@@ -69,8 +80,8 @@ INFO:root:     Quê quán I Place of origin:
 INFO:root:     Gio Quang, Gio Linh, Quảng Trị
 INFO:root:     Nơi thường trú I Place of
 INFO:root:     residence Vinh Quang Ha
-INFO:root:Datetime: 2021-11-15 19:53:26.470867
-INFO:root:Time recognize text: 38.2453
+INFO:root:Datetime: 2021-11-18 13:39:57.857245
+INFO:root:Time recognize text: 63.823
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\07.jpg
 INFO:root:Text:
 INFO:root:     045077008725
@@ -83,8 +94,8 @@ INFO:root:     Quê quán I Place of origin:
 INFO:root:     Gio Quang, Gio Linh, Quảng Trị
 INFO:root:     Nơi thường trú I Place of
 INFO:root:     residence Vinh Quang Hạ
-INFO:root:Datetime: 2021-11-15 19:54:05.783872
-INFO:root:Time recognize text: 39.13
+INFO:root:Datetime: 2021-11-18 13:40:58.956862
+INFO:root:Time recognize text: 59.0676
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\08.jpg
 INFO:root:Text:
 INFO:root:     045179006206
@@ -98,8 +109,8 @@ INFO:root:     Quê quán I Place of origin:
 INFO:root:     Đông Giang, Thành phố Đông Hà, Quảng Trị
 INFO:root:     Nơi thường trú I Place of
 INFO:root:     Trị đến, 7.0000.000 Nơi thường trú 1 Place of residence-Vinh Quang Hạ
-INFO:root:Datetime: 2021-11-15 19:54:40.938189
-INFO:root:Time recognize text: 34.635
+INFO:root:Datetime: 2021-11-18 13:41:59.766859
+INFO:root:Time recognize text: 60.502
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\09.jpg
 INFO:root:Text:
 INFO:root:     07056079
@@ -110,8 +121,8 @@ INFO:root:     Nguyễn quản
 INFO:root:     Đông Chang, TP Đông Hà, Quảng Trị
 INFO:root:     Nơi ĐKHK thường trú: Vinh Quang Hạr
 INFO:root:     Gio Quang, Gio Linh, Quảng Tri
-INFO:root:Datetime: 2021-11-15 19:55:17.623184
-INFO:root:Time recognize text: 36.276
+INFO:root:Datetime: 2021-11-18 13:43:02.942062
+INFO:root:Time recognize text: 61.3432
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\10.jpg
 INFO:root:Text:
 INFO:root:     NGUYỄN VĂN QUYỀN
@@ -120,8 +131,8 @@ INFO:root:     Nguyễn quân minh Gia Quang
 INFO:root:     Gio Lĩnh Quảng Trị
 INFO:root:     Nơi ĐKHK thường trú Vinh Quang Hạ
 INFO:root:     Gio Quang Gio Linh, Quảng Trị
-INFO:root:Datetime: 2021-11-15 19:55:26.969185
-INFO:root:Time recognize text: 9.33
+INFO:root:Datetime: 2021-11-18 13:43:17.377058
+INFO:root:Time recognize text: 14.373
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\11.jpg
 INFO:root:Text:
 INFO:root:     HỌ IỆN NGUYỄN THỊ THÚY AN
@@ -129,8 +140,8 @@ INFO:root:     Sinh ngày 10/31-10-2003
 INFO:root:     Nguyễn quân quan Nam Định
 INFO:root:     Nơi ĐKHK thương trứ
 INFO:root:     Phước Tân, Biên Hoà, Đồng Nai
-INFO:root:Datetime: 2021-11-15 19:55:34.120191
-INFO:root:Time recognize text: 7.139
+INFO:root:Datetime: 2021-11-18 13:43:27.357147
+INFO:root:Time recognize text: 9.9661
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\12.jpg
 INFO:root:Text:
 INFO:root:     SOU 381491103
@@ -140,8 +151,8 @@ INFO:root:     Nguyễn quán minh Lý Văn Lâm
 INFO:root:     TP Cà Mau, Cà Mau
 INFO:root:     Nơi ĐKHK thương trú. Ấp Xóm Lớn
 INFO:root:     Lý Văn Lâm, TP Cà Mau, Cà Mau
-INFO:root:Datetime: 2021-11-15 19:55:41.914202
-INFO:root:Time recognize text: 7.746
+INFO:root:Datetime: 2021-11-18 13:43:39.120136
+INFO:root:Time recognize text: 11.706
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\13.jpg
 INFO:root:Text:
 INFO:root:     số 206279457
@@ -151,8 +162,8 @@ INFO:root:     Nguyên quán minh Duy Nghĩa
 INFO:root:     Xuyên Quảng Nam
 INFO:root:     Nơi ĐKHK thường trú: - Thành Triều
 INFO:root:     Nghĩa, Duy Xuyên, Quảng Nam
-INFO:root:Datetime: 2021-11-15 19:55:50.385187
-INFO:root:Time recognize text: 8.433
+INFO:root:Datetime: 2021-11-18 13:43:49.571136
+INFO:root:Time recognize text: 10.436
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\14.jpg
 INFO:root:Text:
 INFO:root:     024314386
@@ -162,8 +173,8 @@ INFO:root:     Sinh ngày 14-06-1989
 INFO:root:     Nguyễn quán Trung TP Hồ Chí Minh
 INFO:root:     Nơi ĐKHK thường trú: 166/1, Ấp.1
 INFO:root:     Xã Hiệp Phước, Nhà Bè, TP. Hồ Chí Minh
-INFO:root:Datetime: 2021-11-15 19:56:20.860247
-INFO:root:Time recognize text: 30.3981
+INFO:root:Datetime: 2021-11-18 13:44:28.246138
+INFO:root:Time recognize text: 38.596
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\15.jpg
 INFO:root:Text:
 INFO:root:     NGUYỄN THÀNH LUÂN
@@ -172,8 +183,8 @@ INFO:root:     Nguyễn quản thình Viên Hoài Châu Bắc
 INFO:root:     Hoài Nhơn, Bình Định
 INFO:root:     Nơi ĐKHK thương trú - Hoài Châu Bắc
 INFO:root:     Hoài Nhơn, Bình Định
-INFO:root:Datetime: 2021-11-15 19:56:34.044891
-INFO:root:Time recognize text: 13.1686
+INFO:root:Datetime: 2021-11-18 13:44:43.996816
+INFO:root:Time recognize text: 15.7257
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\16.jpg
 INFO:root:Text:
 INFO:root:     Số 315245137
@@ -184,8 +195,8 @@ INFO:root:     Nguyễn quản minh văn Cầm Hưng Hà
 INFO:root:     FC Thái Bình
 INFO:root:     Nơi ĐKHK thương trú: 38/24b lê thị Hoa
 INFO:root:     Phường Bình Chiếu,Quận Thủ Đức,TP.Hồ Chí Minh
-INFO:root:Datetime: 2021-11-15 19:56:40.682895
-INFO:root:Time recognize text: 6.601
+INFO:root:Datetime: 2021-11-18 13:44:52.228823
+INFO:root:Time recognize text: 8.188
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\17.jpg
 INFO:root:Text:
 INFO:root:     Số 264475882
@@ -195,8 +206,8 @@ INFO:root:     Nguyện quản minh Phước
 INFO:root:     Ninh Thuận
 INFO:root:     Nơi ĐKHK thường trú: Thái Giao
 INFO:root:     Phước Thái, Ninh Phước, Ninh Thuận
-INFO:root:Datetime: 2021-11-15 19:56:46.243893
-INFO:root:Time recognize text: 5.516
+INFO:root:Datetime: 2021-11-18 13:45:00.566820
+INFO:root:Time recognize text: 8.297
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\18.jpg
 INFO:root:Text:
 INFO:root:     số mu154322589
@@ -204,8 +215,8 @@ INFO:root:     HỌ TÊN WANDERING KNIGHT
 INFO:root:     Sinh ngày - Hà Nội Việt Nam
 INFO:root:     Nguyễn quản
 INFO:root:     Nơi ĐKHK thường trú: hà nội - việt nam
-INFO:root:Datetime: 2021-11-15 19:56:52.822897
-INFO:root:Time recognize text: 6.571
+INFO:root:Datetime: 2021-11-18 13:45:11.151815
+INFO:root:Time recognize text: 10.571
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\19.jpg
 INFO:root:Text:
 INFO:root:     012164313
@@ -215,8 +226,8 @@ INFO:root:     Nguyên quán
 INFO:root:     Thụy Lâm, Đông Anh, Hà Nội
 INFO:root:     Nơi ĐKHK thường trú: ĐKHK Đào Thục
 INFO:root:     Lâm, Đông Anh, Hà Nội
-INFO:root:Datetime: 2021-11-15 19:57:02.079894
-INFO:root:Time recognize text: 9.244
+INFO:root:Datetime: 2021-11-18 13:45:22.051817
+INFO:root:Time recognize text: 10.887
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\20.jpg
 INFO:root:Text:
 INFO:root:     số 1194626868
@@ -226,8 +237,8 @@ INFO:root:     Nguyên quân minh Sơn Trạch
 INFO:root:     Bổ Trạch Quáng Bình
 INFO:root:     Nơi ĐKHK thường trú: - Sơn Trạch
 INFO:root:     Bố Trạch, Quảng Bình
-INFO:root:Datetime: 2021-11-15 19:57:14.102893
-INFO:root:Time recognize text: 12.008
+INFO:root:Datetime: 2021-11-18 13:45:33.981818
+INFO:root:Time recognize text: 11.913
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\21.jpg
 INFO:root:Text:
 INFO:root:     số 145064321
@@ -237,8 +248,8 @@ INFO:root:     Nguyễn quán xe Bình Minh
 INFO:root:     Khoái Châu, Hưng Yên
 INFO:root:     Nơi ĐKHK thường trú: Bình minh
 INFO:root:     Khoái Châu, Hưng Yên
-INFO:root:Datetime: 2021-11-15 19:57:21.622898
-INFO:root:Time recognize text: 7.45
+INFO:root:Datetime: 2021-11-18 13:45:41.461818
+INFO:root:Time recognize text: 7.432
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\22.jpg
 INFO:root:Text:
 INFO:root:     026099003096
@@ -248,8 +259,8 @@ INFO:root:     Giới típh: Nam
 INFO:root:     Quê quân Đại Đồng
 INFO:root:     Nơi thường trù: Thôn 5, Đại Đồng
 INFO:root:     01/A1/2024, Vĩnh Tường, Vĩnh Phúc
-INFO:root:Datetime: 2021-11-15 19:57:28.020896
-INFO:root:Time recognize text: 6.391
+INFO:root:Datetime: 2021-11-18 13:45:49.329819
+INFO:root:Time recognize text: 7.859
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\23.jpg
 INFO:root:Text:
 INFO:root:     VOLTS1985
@@ -259,19 +270,17 @@ INFO:root:     Nguyên quán Trong Mỹ
 INFO:root:     Phu mỹ bình định
 INFO:root:     Nơi ĐKHK thường trú: KV3 Thi, nai
 INFO:root:     Quy nhơn, Bình dinh
-INFO:root:Datetime: 2021-11-15 19:57:39.646892
-INFO:root:Time recognize text: 11.603
+INFO:root:Datetime: 2021-11-18 13:46:06.895816
+INFO:root:Time recognize text: 17.544
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\24.jpg
 INFO:root:Text:
-INFO:root:     số 11276030355
 INFO:root:     Họ tên
 INFO:root:     NGUYỄN THỊ THANH TUYỀN
 INFO:root:     Sinh ngày.01-2004
 INFO:root:     Nguyễn quán Trị Quảng Trị
 INFO:root:     Nơi ĐKtíK thường trú:
-INFO:root:     Xuân Hưng, Xuân Lộc, Đồng Nai
-INFO:root:Datetime: 2021-11-15 19:57:51.889893
-INFO:root:Time recognize text: 12.228
+INFO:root:Datetime: 2021-11-18 13:46:24.912821
+INFO:root:Time recognize text: 17.995
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\25.jpg
 INFO:root:Text:
 INFO:root:     số 168609178
@@ -281,8 +290,8 @@ INFO:root:     Nguyễn quán
 INFO:root:     Huyện Bình Lục, Hà Nam
 INFO:root:     Nơi ĐKHK thường trú: xã Tràng An
 INFO:root:     Huyện Bình Lục, Hà Nam
-INFO:root:Datetime: 2021-11-15 19:57:59.002896
-INFO:root:Time recognize text: 7.037
+INFO:root:Datetime: 2021-11-18 13:46:35.580824
+INFO:root:Time recognize text: 10.617
 INFO:root:Img: D:\CS406\IDCard_OCR\server\results\26.jpg
 INFO:root:Text:
 INFO:root:     SOU 381491103
@@ -292,4 +301,34 @@ INFO:root:     Nguyễn quán minh Lý Văn Lâm
 INFO:root:     TP Cà Mau, Cà Mau
 INFO:root:     Nơi ĐKHK thương trú. Ấp Xóm Lớn
 INFO:root:     Lý Văn Lâm, TP Cà Mau, Cà Mau
-INFO:root:Time average: 15.368642307692312
+INFO:root:Datetime: 2021-11-18 13:46:50.754816
+INFO:root:Time recognize text: 15.045
+INFO:root:Img: D:\CS406\IDCard_OCR\server\results\BHYT01.png
+INFO:root:Text:
+INFO:root:     và tên: phan thị liên
+INFO:root:     Ngày sinh: 12/01/1984
+INFO:root:     Địa chi: Bảo hiểm xã hội Nghệ An
+INFO:root:     Nơi ĐK KCB BĐ: Ban bảo vệ sức khoẻ cán bộ
+INFO:root:Datetime: 2021-11-18 13:47:01.752821
+INFO:root:Time recognize text: 10.991
+INFO:root:Img: D:\CS406\IDCard_OCR\server\results\BHYT02.jpg
+INFO:root:Text:
+INFO:root:     Họ và tên: trần thị b
+INFO:root:     Ngày sinh: 12/08/1981mung tâm y Giới tính
+INFO:root:     Nơi ĐK KCB BĐ.Phore khám đa khoa (thuộc CN1 - Cf)
+INFO:root:Datetime: 2021-11-18 13:47:17.957819
+INFO:root:Time recognize text: 16.153
+INFO:root:Img: D:\CS406\IDCard_OCR\server\results\BHYT03.png
+INFO:root:Text:
+INFO:root:     HỌ VÀ TÊN: HOÀNG VĂN A
+INFO:root:     Ngày sinh: 23/07/1980
+INFO:root:     Nơi ĐK KCB BĐ: TTYT quận hoàn kiếm
+INFO:root:Datetime: 2021-11-18 13:47:35.689818
+INFO:root:Time recognize text: 17.718
+INFO:root:Img: D:\CS406\IDCard_OCR\server\results\BLX01.jpg
+INFO:root:Text:
+INFO:root:     HỌ TÊN/FUII NAME - NGUYỄN HOÀNG MINH NGUYỆT
+INFO:root:     Ngày sinh/ Date of Binh: 1988/29/12/1988
+INFO:root:     Quốc tịch/Nationality: - WIII Việt Nam
+INFO:root:     Nơi cư trú/ Address: Số 55, hẻm 45/67 Xô Viết
+INFO:root:Time average: 22.075348387096774

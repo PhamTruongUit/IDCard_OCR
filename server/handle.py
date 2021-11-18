@@ -144,7 +144,7 @@ def url_process(detector, reader, url_drive):
 
     lst_tail = ['jpg', 'jpeg', 'png']
 
-    handlers = [logging.FileHandler('./logs/debug.log', 'w', 'utf-8')]
+    handlers = [logging.FileHandler('./logs/debug_url.log', 'w', 'utf-8')]
     logging.basicConfig(handlers=handlers, level=logging.DEBUG)
     time_average = []
     for id in range(len(list_files)):
@@ -206,8 +206,8 @@ def clear_file(path):
             os.remove(os.path.join(path, f))
 
 if __name__ == "__main__":
-    # from src.ocr.models import load_model
-    # detector, reader = load_model()
+    from src.ocr.models import load_model
+    detector, reader = load_model()
     # image_process(detector = detector, reader = reader, path = "./src/images/02.jpg", lst=["none"])
-    # path_process(detector = detector, reader = reader, path = "./src/images")
+    path_process(detector = detector, reader = reader, path = "./src/images")
     None
