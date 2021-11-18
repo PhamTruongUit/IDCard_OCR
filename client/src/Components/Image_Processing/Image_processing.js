@@ -35,7 +35,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="01"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Blur Bilateral</span>}
+            label={<span style={{ fontSize: "15px" }}>Blur Gaussian</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -45,7 +45,7 @@ export default function ImageProcessing(props) {
             value="02"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
             label={
-              <span style={{ fontSize: "15px" }}>Increase Brightness</span>
+              <span style={{ fontSize: "15px" }}>Blur Bilateral</span>
             }
             onChange={handleChange}
             sx={{ fontSize: 16 }}
@@ -56,7 +56,7 @@ export default function ImageProcessing(props) {
             value="03"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
             label={
-              <span style={{ fontSize: "15px" }}>Decrease Brightness</span>
+              <span style={{ fontSize: "15px" }}>Increase Brightness</span>
             }
             onChange={handleChange}
             sx={{ fontSize: 16 }}
@@ -66,7 +66,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="04"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Increase Contract</span>}
+            label={<span style={{ fontSize: "15px" }}>Decrease Brightness</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -75,7 +75,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="05"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Decrease Contract</span>}
+            label={<span style={{ fontSize: "15px" }}>Increase Contract</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -84,7 +84,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="06"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Erosion</span>}
+            label={<span style={{ fontSize: "15px" }}>Decrease Contract</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -93,7 +93,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="07"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Dilation</span>}
+            label={<span style={{ fontSize: "15px" }}>Erosion</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -102,7 +102,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="08"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Opening</span>}
+            label={<span style={{ fontSize: "15px" }}>Dilation</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -111,7 +111,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="09"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Closing</span>}
+            label={<span style={{ fontSize: "15px" }}>Opening</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
@@ -121,7 +121,7 @@ export default function ImageProcessing(props) {
             value="10"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
             label={
-              <span style={{ fontSize: "15px" }}>Histogram Equalization</span>
+              <span style={{ fontSize: "15px" }}>Closing</span>
             }
             onChange={handleChange}
             sx={{ fontSize: 16 }}
@@ -131,7 +131,7 @@ export default function ImageProcessing(props) {
           <FormControlLabel
             value="11"
             control={<Checkbox sx={{ color: "#FF275D" }} />}
-            label={<span style={{ fontSize: "15px" }}>Auto Rotation</span>}
+            label={<span style={{ fontSize: "15px" }}>Histogram Equalization</span>}
             onChange={handleChange}
             sx={{ fontSize: 16 }}
           />
