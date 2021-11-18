@@ -19,19 +19,19 @@ def dec_brightness(image, brightness=-40):
     image[image < 0] = 0
     return image.astype(np.uint8)
 
-def inc_contract(image, contract=1.5, brightness=-70):
+def inc_contract(image, contrast=1.5, brightness=-70):
     temp = np.array(image)
     image = np.zeros_like(temp)
-    image = (temp-0.5)*contract + 0.5 + brightness
+    image = (temp-0.5)*contrast + 0.5 + brightness
     image = np.rint(image)
     image[image > 255] = 255
     image[image < 0] = 0
     return image.astype(np.uint8)
 
-def dec_contrast(image, contract=0.5, brightness=50):
+def dec_contrast(image, contrast=0.5, brightness=50):
     temp = np.array(image)
     image = np.zeros_like(temp)
-    image = (temp-0.5)*contract + 0.5 + brightness
+    image = (temp-0.5)*contrast + 0.5 + brightness
     image = np.rint(image)
     image[image > 255] = 255
     image[image < 0] = 0

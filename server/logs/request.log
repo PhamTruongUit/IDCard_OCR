@@ -1,0 +1,5 @@
+INFO:root:Datetime: 2021-11-18 12:40:03.129387
+INFO:root:List Option: ['auto']
+INFO:root:Time preprocess image: 0.1769
+INFO:root:Time recognize text: 9.2828
+INFO:werkzeug:127.0.0.1 - - [18/Nov/2021 12:40:03] "[37mPOST /app HTTP/1.1[0m" 200 -
