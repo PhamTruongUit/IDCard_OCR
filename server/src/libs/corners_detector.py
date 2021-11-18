@@ -4,8 +4,8 @@ from src.libs import geometry
 from src.libs import enhancement
 
 def auto_corners(image, contrast = 1.5, brightness = -20, scale_weight = 0.4):
-    # increase contrast and decrease brightness
-    image = enhancement.inc_contract(image, contrast=contrast, brightness=brightness)
+    # increase contract and decrease brightness
+    image = enhancement.inc_contrast(image, contrast=contrast, brightness=brightness)
     image = geometry.scale(image, weight=scale_weight)
     new_height, new_width, _ = image.shape
 
