@@ -57,6 +57,10 @@ def Closing(image, kernel_x=3, kernel_y=3):
     image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
     return image
     
+def blur_gaussian(image, kernel_size=5, sigma=0):
+    image = cv2.GaussianBlur(image,(kernel_size, kernel_size), sigma)
+    return image
+
 def blur_bilateral(image, d=9, sigmaColor=50, sigmaSpace=50):
     image = cv2.bilateralFilter(image, d, sigmaColor, sigmaSpace)
     return image
