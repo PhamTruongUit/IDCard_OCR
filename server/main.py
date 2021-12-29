@@ -53,4 +53,4 @@ def get_index():
 
 if __name__ == '__main__':
     detector, reader = load_model()
-    app.run(host=HOST, port=SERVER, debug=False)
+    app.run(host=HOST, port=SERVER, debug=False, threaded=True)
