@@ -8,7 +8,7 @@ config.SERVER = config.get("server", "port")
 config.CLIENT = config.get("client", "port")
 
 device = config.get("models","device")
-if device == "cuda":
+if device == "gpu":
     config.DEVICE = "cuda:0"
 elif device == "cpu":
     config.DEVICE = "cpu"

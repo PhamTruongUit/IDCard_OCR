@@ -25,16 +25,8 @@ def fit_fields(lst_text, index_start=0):
                 flag_end = i
                 break 
 
-        # print(flag_start, flag_end)
-        # print(id_temp)
-        # print('---------------------')
-
         if flag_start >= flag_end: 
             continue 
-        
-        # print(flag_start, flag_end)
-        # print(id_temp)
-        # print('---------------------')
 
         flag_param[id_temp] = [flag_start,flag_end]
         # get template similar 

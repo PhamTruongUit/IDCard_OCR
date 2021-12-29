@@ -1,4 +1,4 @@
-# from pyvi import ViUtils
+from pyvi import ViUtils
 import numpy as np
 from enchant.utils import levenshtein
 from scipy.spatial.distance import cdist
@@ -18,8 +18,8 @@ def format_text(lst_text):
     lst_upper = []
     for text in lst_text:
         temp = text.upper()
-        # temp = ViUtils.remove_accents(temp)
-        # temp = temp.decode('utf-8')
+        temp = ViUtils.remove_accents(temp)
+        temp = temp.decode('utf-8')
         lst_upper.append(temp)
     return lst_upper
 

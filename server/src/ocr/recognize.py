@@ -10,3 +10,6 @@ def OCR(lst_lines, detector)->list:
             text = ''
         lst_text.append(text)
     return lst_text
+
+
+    
