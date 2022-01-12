@@ -1,0 +1,10 @@
+INFO:root:Datetime: 2021-12-29 23:39:30.648938
+INFO:root:List Option: ['histogram']
+INFO:root:Time preprocess image: 0.1415
+INFO:root:Time recognize text: 10.392
+INFO:werkzeug:127.0.0.1 - - [29/Dec/2021 23:39:30] "POST /app HTTP/1.1" 200 -
+INFO:root:Datetime: 2022-01-12 10:40:09.720610
+INFO:root:List Option: ['auto']
+INFO:root:Time preprocess image: 3.6126
+INFO:root:Time recognize text: 89.498
+INFO:werkzeug:127.0.0.1 - - [12/Jan/2022 10:40:10] "POST /app HTTP/1.1" 200 -

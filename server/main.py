@@ -19,7 +19,7 @@ CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/app', methods=['POST'])
-@cross_origin(origin=f'{HOST}:{CLIENT}')
+@cross_origin(origin='*')
 def process_image():
     if request.method == 'POST':
         obj = request.form
